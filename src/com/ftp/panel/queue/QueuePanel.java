@@ -269,16 +269,6 @@ public class QueuePanel extends JPanel implements ActionListener {
 	 * 刷新队列的方法
 	 */
 	private synchronized void refreshQueue() {
-		// 如果自动关机按钮被按下并且上传和下载的队列都有任务
-		if (frame.getShutdownButton().isSelected() && localQueue.isEmpty()
-				&& ftpQueue.isEmpty()) {
-			try {
-				// 执行系统关机命令，延迟30秒钟
-				Runtime.getRuntime().exec("shutdown -s -t 30");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		// 创建表格的数据模型对象
 		DefaultTableModel model = new DefaultTableModel(columns, 0);
 		// 获取本地上传队列中的任务

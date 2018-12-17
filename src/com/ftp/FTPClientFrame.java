@@ -35,7 +35,6 @@ import com.ftp.utils.FtpClient;
 import com.ftp.utils.SiteInfoBean;
 import com.sun.java.swing.plaf.nimbus.*;
 
-
 public class FTPClientFrame extends javax.swing.JFrame{
     FtpClient ftpClient;
     private JPasswordField PassField;
@@ -53,7 +52,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
     private final LinkToAction LINK_TO_ACTION; // 连接到 按钮的动作处理器
     private final CutLinkAction CUT_LINK_ACTION; // 断开 按钮的动作处理器
     private SystemTray systemTray;
-    private JToggleButton shutdownButton;
     private final ImageIcon icon = new ImageIcon(getClass().getResource("/com/oyp/ftp/res/trayIcon.png"));
 
     public FTPClientFrame() {
@@ -148,7 +146,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
         JMenuItem ftpRenameMenuItem = new javax.swing.JMenuItem();
         JMenuItem newFolderMenuItem = new javax.swing.JMenuItem();
         JMenu helpMenu = new javax.swing.JMenu();
-        JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
         JMenuItem bugMenuItem = new javax.swing.JMenuItem();
 
         setTitle("基于Socket的FTP软件");
@@ -184,12 +181,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
         jToolBar1.add(cutLinkButton);
 
         jPanel1.add(jToolBar1);
-
-        shutdownButton = new JToggleButton();
-        shutdownButton.setText("自动关机");
-        shutdownButton.setToolTipText("队列完成后，自动关闭计算机");
-        shutdownButton.setFocusable(false);
-        jToolBar1.add(shutdownButton);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
@@ -408,10 +399,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
         MenuBar.add(ftpMenu);
 
         helpMenu.setText("帮助(H)");
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("关于(A)");
-        aboutMenuItem.addActionListener(new AboutItemAction(this));
-        helpMenu.add(aboutMenuItem);
 
         bugMenuItem.setMnemonic('u');
         bugMenuItem.setText("错误报告(U)");
@@ -424,10 +411,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width - 800) / 2, (screenSize.height - 600) / 2, 800, 700);
-    }
-
-    public JToggleButton getShutdownButton() {
-        return shutdownButton;
     }
 
     //窗体装载的事件处理方法
