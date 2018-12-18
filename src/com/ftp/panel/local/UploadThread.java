@@ -142,32 +142,16 @@ class UploadThread extends Thread {
 				/**
 				 * 如果有创建文件夹的权限，则在当前FTP服务器的当前目录下创建文件夹
 				 * 必须要有创建文件夹的权限，否则会报错
-				 * 		path：audio
-				 ftpFile.getAbsolutePath()：/media/audio
-				 remoteFile:/media/audio/梁静茹-会呼吸的痛Live.mp3
 				 */
 				ftpClient.makeDirectory(path);   //创建  /media/audio 目录
 				ftpClient.getLastReplyCode();
 
-				/***********************************************************
-				 * 如果没有有创建文件夹的权限，则创建文件夹，因此FTP服务器的当前路径下不存在
-				 * 那么将文件上传到此FTP服务器的当前路径下
-				 *
-				 * 		如要上传C://audio目录（目录中有 梁静茹-会呼吸的痛Live.mp3 和 林宥嘉-心酸.mp3 两个文件）
-				 * 		到 FTP服务器上的  /media/ 目录下
-				 * 		因为FTP服务器上没有 /media/audio 目录，并且FTP服务器当前的目录为 /media
-				 * 		所以将 C://audio目录下的文件上传到了 /media目录下
-				 * 		ftpFile.getAbsolutePath()：/media/audio
-				 remoteFile:/media/梁静茹-会呼吸的痛Live.mp3
-				 remoteFile:/media/林宥嘉-心酸.mp3
-				 */
 				//创建一个文件夹对象，检查该文件是否存在
 				File fileRemote=new File(this.localPanel.frame.getFtpPanel().getPwd()+path);  //path：audio
 				//该目录不存在
 				if (!fileRemote.exists()) {
 					path=this.localPanel.frame.getFtpPanel().getPwd();
 				}
-				/***********************************************************/
 
 				File[] listFiles = file.listFiles();
 				for (File subFile : listFiles) {

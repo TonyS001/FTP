@@ -200,7 +200,6 @@ public class FtpPanel extends javax.swing.JPanel{
                     int i=0,j=0;
                     while(i<bufsize){
                         //字符模式为10，二进制模式为13
-//						if (names[i]==10) {
                         if (names[i]==13) {
                             //文件名在数据中开始做坐标为j,i-j为文件名的长度，文件名在数据中的结束下标为i-1
                             String fileMessage = new String(names,j,i-j);
@@ -222,9 +221,6 @@ public class FtpPanel extends javax.swing.JPanel{
                                 String fileName=fileMessage.split("\\s+")[8];
                                 /**文件日期*/
                                 String dateStr =fileMessage.split("\\s+")[5] +" "+fileMessage.split("\\s+")[6]+" " +fileMessage.split("\\s+")[7];
-								//System.out.println("sizeOrDir="+sizeOrDir);
-								//System.out.println("fileName="+fileName);
-								//System.out.println("dateStr="+dateStr);
 
                                 FtpFile ftpFile = new FtpFile();
                                 // 将FTP目录信息初始化到FTP文件对象中
@@ -255,7 +251,6 @@ public class FtpPanel extends javax.swing.JPanel{
         else
             SwingUtilities.invokeLater(runnable);
     }
-
 
     /**
      * 设置FTP连接，并启动下载队列线程的方法
