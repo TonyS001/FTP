@@ -48,11 +48,11 @@ public class FtpPanel extends javax.swing.JPanel{
 
     private void initComponents() {
         ActionMap actionMap = getActionMap();
-        actionMap.put("createFolderAction", new CreateFolderAction(this, "åˆ›å»ºæ–‡ä»¶å¤¹", null));
-        actionMap.put("delAction", new DelFileAction(this, "åˆ é™¤", null));
-        actionMap.put("refreshAction", new RefreshAction(this, "åˆ·æ–°", null));
-        actionMap.put("renameAction", new RenameAction(this, "é‡å‘½å", null));
-        actionMap.put("downAction", new DownAction(this, "ä¸‹è½½", null));
+        actionMap.put("createFolderAction", new CreateFolderAction(this, "´´½¨ÎÄ¼ş¼Ğ", null));
+        actionMap.put("delAction", new DelFileAction(this, "É¾³ı", null));
+        actionMap.put("refreshAction", new RefreshAction(this, "Ë¢ĞÂ", null));
+        actionMap.put("renameAction", new RenameAction(this, "ÖØÃüÃû", null));
+        actionMap.put("downAction", new DownAction(this, "ÏÂÔØ", null));
 
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -67,7 +67,7 @@ public class FtpPanel extends javax.swing.JPanel{
         ftpDiskTable.setDragEnabled(true);
         ftpSelFilePathLabel = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "è¿œç¨‹",
+        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ô¶³Ì",
                 javax.swing.border.TitledBorder.CENTER,
                 javax.swing.border.TitledBorder.ABOVE_TOP));
         setLayout(new java.awt.GridBagLayout());
@@ -75,29 +75,29 @@ public class FtpPanel extends javax.swing.JPanel{
         toolBar.setRollover(true);
         toolBar.setFloatable(false);
 
-        delButton.setText("åˆ é™¤");
+        delButton.setText("É¾³ı");
         delButton.setFocusable(false);
         delButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         delButton.setAction(actionMap.get("delAction"));
         toolBar.add(delButton);
 
-        renameButton.setText("é‡å‘½å");
+        renameButton.setText("ÖØÃüÃû");
         renameButton.setFocusable(false);
         renameButton.setAction(actionMap.get("renameAction"));
         toolBar.add(renameButton);
 
-        createFolderButton.setText("æ–°æ–‡ä»¶å¤¹");
+        createFolderButton.setText("ĞÂÎÄ¼ş¼Ğ");
         createFolderButton.setFocusable(false);
         createFolderButton.setAction(actionMap.get("createFolderAction"));
         toolBar.add(createFolderButton);
 
-        downButton.setText("ä¸‹è½½");
+        downButton.setText("ÏÂÔØ");
         downButton.setFocusable(false);
         downButton.setAction(actionMap.get("downAction"));
         toolBar.add(downButton);
 
-        refreshButton.setText("åˆ·æ–°");
+        refreshButton.setText("Ë¢ĞÂ");
         refreshButton.setFocusable(false);
         refreshButton.setAction(actionMap.get("refreshAction"));
         toolBar.add(refreshButton);
@@ -121,19 +121,19 @@ public class FtpPanel extends javax.swing.JPanel{
         });
         scrollPane.setViewportView(ftpDiskTable);
         scrollPane.getViewport().setBackground(Color.WHITE);
-        //è®¾ç½®æ¸²æŸ“æœ¬åœ°èµ„æºå’ŒFTPèµ„æºè¡¨æ ¼ç»„ä»¶çš„æ¸²æŸ“å™¨
+        //ÉèÖÃäÖÈ¾±¾µØ×ÊÔ´ºÍFTP×ÊÔ´±í¸ñ×é¼şµÄäÖÈ¾Æ÷
         ftpDiskTable.getColumnModel().getColumn(0).setCellRenderer(FTPTableCellRanderer.getCellRanderer());
-        //RowSorter çš„ä¸€ä¸ªå®ç°ï¼Œå®ƒä½¿ç”¨ TableModel æä¾›æ’åºå’Œè¿‡æ»¤æ“ä½œã€‚
+        //RowSorter µÄÒ»¸öÊµÏÖ£¬ËüÊ¹ÓÃ TableModel Ìá¹©ÅÅĞòºÍ¹ıÂË²Ù×÷¡£
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(ftpDiskTable.getModel());
         TableStringConverter converter = new TableConverter();
-        //è®¾ç½®è´Ÿè´£å°†å€¼ä»æ¨¡å‹è½¬æ¢ä¸ºå­—ç¬¦ä¸²çš„å¯¹è±¡ã€‚
+        //ÉèÖÃ¸ºÔğ½«Öµ´ÓÄ£ĞÍ×ª»»Îª×Ö·û´®µÄ¶ÔÏó¡£
         sorter.setStringConverter(converter);
-        //è®¾ç½® RowSorterã€‚RowSorter ç”¨äºæä¾›å¯¹ JTable çš„æ’åºå’Œè¿‡æ»¤ã€‚
+        //ÉèÖÃ RowSorter¡£RowSorter ÓÃÓÚÌá¹©¶Ô JTable µÄÅÅĞòºÍ¹ıÂË¡£
         ftpDiskTable.setRowSorter(sorter);
         /**
-         * é¢ å€’æŒ‡å®šåˆ—çš„æ’åºé¡ºåºã€‚è°ƒç”¨æ­¤æ–¹æ³•æ—¶ï¼Œç”±å­ç±»æä¾›å…·ä½“è¡Œä¸ºã€‚
-         * é€šå¸¸ï¼Œå¦‚æœæŒ‡å®šåˆ—å·²ç»æ˜¯ä¸»è¦æ’åºåˆ—ï¼Œåˆ™æ­¤æ–¹æ³•å°†å‡åºå˜ä¸ºé™åºï¼ˆæˆ–å°†é™åºå˜ä¸ºå‡åºï¼‰ï¼›
-         * å¦åˆ™ï¼Œä½¿æŒ‡å®šåˆ—æˆä¸ºä¸»è¦æ’åºåˆ—ï¼Œå¹¶ä½¿ç”¨å‡åºæ’åºé¡ºåºã€‚å¦‚æœæŒ‡å®šåˆ—ä¸å¯æ’åºï¼Œåˆ™æ­¤æ–¹æ³•æ²¡æœ‰ä»»ä½•æ•ˆæœã€‚
+         * µßµ¹Ö¸¶¨ÁĞµÄÅÅĞòË³Ğò¡£µ÷ÓÃ´Ë·½·¨Ê±£¬ÓÉ×ÓÀàÌá¹©¾ßÌåĞĞÎª¡£
+         * Í¨³££¬Èç¹ûÖ¸¶¨ÁĞÒÑ¾­ÊÇÖ÷ÒªÅÅĞòÁĞ£¬Ôò´Ë·½·¨½«ÉıĞò±äÎª½µĞò£¨»ò½«½µĞò±äÎªÉıĞò£©£»
+         * ·ñÔò£¬Ê¹Ö¸¶¨ÁĞ³ÉÎªÖ÷ÒªÅÅĞòÁĞ£¬²¢Ê¹ÓÃÉıĞòÅÅĞòË³Ğò¡£Èç¹ûÖ¸¶¨ÁĞ²»¿ÉÅÅĞò£¬Ôò´Ë·½·¨Ã»ÓĞÈÎºÎĞ§¹û¡£
          */
         sorter.toggleSortOrder(0);
 
@@ -154,7 +154,7 @@ public class FtpPanel extends javax.swing.JPanel{
     }
 
     /**
-     * è¡¨æ ¼å•å‡»æˆ–åŒå‡»äº‹ä»¶çš„å¤„ç†æ–¹æ³•ã€‚
+     * ±í¸ñµ¥»÷»òË«»÷ÊÂ¼şµÄ´¦Àí·½·¨¡£
      */
     private void ftpDiskTableMouseClicked(java.awt.event.MouseEvent evt) {
         int selectedRow = ftpDiskTable.getSelectedRow();
@@ -162,7 +162,7 @@ public class FtpPanel extends javax.swing.JPanel{
         if (value instanceof FtpFile) {
             FtpFile selFile = (FtpFile) value;
             ftpSelFilePathLabel.setText(selFile.getAbsolutePath());
-            if (evt.getClickCount() >= 2) { //åŒå‡»é¼ æ ‡
+            if (evt.getClickCount() >= 2) { //Ë«»÷Êó±ê
                 if (selFile.isDirectory()) {
                     try {
                         ftpClient.changeDirectory(selFile.getAbsolutePath());
@@ -176,134 +176,73 @@ public class FtpPanel extends javax.swing.JPanel{
     }
 
     /**
-     * è¯»å–FTPæ–‡ä»¶åˆ°è¡¨æ ¼çš„æ–¹æ³•
+     * ¶ÁÈ¡FTPÎÄ¼şµ½±í¸ñµÄ·½·¨
      * @param list
-     *            è¯»å–FTPæœåŠ¡å™¨èµ„æºåˆ—è¡¨çš„è¾“å…¥æµ
+     *            ¶ÁÈ¡FTP·şÎñÆ÷×ÊÔ´ÁĞ±íµÄÊäÈëÁ÷
      */
     public synchronized void listFtpFiles(final InputStream list) {
-        // è·å–è¡¨æ ¼çš„æ•°æ®æ¨¡å‹
+        // »ñÈ¡±í¸ñµÄÊı¾İÄ£ĞÍ
         final DefaultTableModel model = (DefaultTableModel) ftpDiskTable
                 .getModel();
         model.setRowCount(0);
-        // åˆ›å»ºä¸€ä¸ªçº¿ç¨‹ç±»
+        // ´´½¨Ò»¸öÏß³ÌÀà
         Runnable runnable = new Runnable() {
             public synchronized void run() {
                 ftpDiskTable.clearSelection();
                 try {
-                    String pwd = getPwd(); // è·å–FTPæœåŠ¡å™¨çš„å½“å‰æ–‡ä»¶å¤¹
-                    model.addRow(new Object[] { new FtpFile(".", pwd, true), "", "" }); // æ·»åŠ â€œ.â€ç¬¦å·
-                    model.addRow(new Object[] { new FtpFile("..", pwd, true), "", "" }); // æ·»åŠ â€œ..â€ç¬¦å·
-					/*
-					byte[]names=new byte[2048];
-					int bufsize=0;
-					bufsize=list.read(names, 0, names.length);
-//					list.close();
-					int i=0,j=0;
-					while(i<bufsize){
-						char bc=(char)names[i];
-						System.out.print(i+" "+bc+" ");
-						//æ–‡ä»¶ååœ¨æ•°æ®ä¸­å¼€å§‹åšåæ ‡ä¸ºj,i-jä¸ºæ–‡ä»¶åçš„é•¿åº¦ï¼Œæ–‡ä»¶ååœ¨æ•°æ®ä¸­çš„ç»“æŸä¸‹æ ‡ä¸ºi-1
-						if (names[i]==13) {
-//							System.out.println("j:"+j+" i:"+i+ " i-j:"+(i-j));
-							String temName=new String(names,j,i-j);
-							System.out.println("temName="+temName);
-							j=i+2;
-						}
-						i=i+1;
-					}
-					*/
-					/* 	å…¶ä¸­æ ¼å¼åº”æ»¡è¶³å¦‚ä¸‹æ ¼å¼çš„å­—ç¬¦ä¸²	ç»“æœä¸º:
-						0 -: 1 r: 2 w: 3 x: 4 -: 5 -: 6 -: 7 -: 8 -: 9 -: 10  : 11 1: 12  : 13 u: 14 s: 15 e: 16 r: 17  : 18 g: 19 r: 20 o: 21 u: 22 p: 23  : 24  : 25  : 26  : 27  : 28  : 29  : 30  : 31  : 32 6: 33 7: 34 8: 35 4: 36 3: 37 0: 38  : 39 A: 40 p: 41 r: 42  : 43 1: 44 6: 45  : 46 2: 47 1: 48 :: 49 4: 50 6: 51  : 52 F: 53 T: 54 P: 55 ?: 56 ?: 57 ?: 58 ?: 59 ?: 60 ?: 61 ?: 62 ?: 63 ?: 64 ?: 65 ?: 66 ?: 67 ?: 68 ?: 69 ?: 70 ?: 71 ?: 72 ?: 73 .: 74 p: 75 d: 76 f: 77
-
-						  -rwx------ 1 user group         678430 Apr 16 21:46 FTPå®¢æˆ·ç«¯çš„è®¾è®¡ä¸å®ç°.pdf
-						  -rwx------ 1 user group       87504927 Apr 18 22:50 VC.æ·±å…¥è¯¦è§£(å­™é‘«)[www.xuexi111.com].pdf
-						  -rwx------ 1 user group          57344 Apr 18 05:32 è…¾è®¯ç”µå•†2013å®ä¹ ç”Ÿæ‹›è˜TSTæ¨èæ¨¡æ¿.xls
-
-						 *<br>d			è¡¨ç¤ºç›®å½•
-						 * <br>-			è¡¨ç¤ºæ–‡ä»¶
-						 * <br>rw-rw-rw-	è¡¨ç¤ºæƒé™è®¾ç½®
-
-						dateStr:39-51
-						sizeOrDirï¼š23-38
-						fileName:52-^
-					*/
+                    String pwd = getPwd(); // »ñÈ¡FTP·şÎñÆ÷µÄµ±Ç°ÎÄ¼ş¼Ğ
+                    model.addRow(new Object[] { new FtpFile(".", pwd, true), "", "" }); // Ìí¼Ó¡°.¡±·ûºÅ
+                    model.addRow(new Object[] { new FtpFile("..", pwd, true), "", "" }); // Ìí¼Ó¡°..¡±·ûºÅ
 
                     byte[]names=new byte[2048];
                     int bufsize=0;
                     bufsize=list.read(names, 0, names.length);
                     int i=0,j=0;
                     while(i<bufsize){
-                        //å­—ç¬¦æ¨¡å¼ä¸º10ï¼ŒäºŒè¿›åˆ¶æ¨¡å¼ä¸º13
+                        //×Ö·ûÄ£Ê½Îª10£¬¶ş½øÖÆÄ£Ê½Îª13
 //						if (names[i]==10) {
                         if (names[i]==13) {
-                            //è·å–å­—ç¬¦ä¸² -rwx------ 1 user group          57344 Apr 18 05:32 è…¾è®¯ç”µå•†2013å®ä¹ ç”Ÿæ‹›è˜TSTæ¨èæ¨¡æ¿.xls
-                            //æ–‡ä»¶ååœ¨æ•°æ®ä¸­å¼€å§‹åšåæ ‡ä¸ºj,i-jä¸ºæ–‡ä»¶åçš„é•¿åº¦ï¼Œæ–‡ä»¶ååœ¨æ•°æ®ä¸­çš„ç»“æŸä¸‹æ ‡ä¸ºi-1
+                            //ÎÄ¼şÃûÔÚÊı¾İÖĞ¿ªÊ¼×ö×ø±êÎªj,i-jÎªÎÄ¼şÃûµÄ³¤¶È£¬ÎÄ¼şÃûÔÚÊı¾İÖĞµÄ½áÊøÏÂ±êÎªi-1
                             String fileMessage = new String(names,j,i-j);
                             if(fileMessage.length() == 0){
                                 System.out.println("fileMessage.length() == 0");
                                 break;
                             }
-                            //æŒ‰ç…§ç©ºæ ¼å°†fileMessageæˆªä¸ºæ•°ç»„åè·å–ç›¸å…³ä¿¡æ¯
-                            // æ­£åˆ™è¡¨è¾¾å¼  \sè¡¨ç¤ºç©ºæ ¼ï¼Œï½›1ï¼Œï½è¡¨ç¤º1ä¸€ä¸ªä»¥ä¸Š
+                            //°´ÕÕ¿Õ¸ñ½«fileMessage½ØÎªÊı×éºó»ñÈ¡Ïà¹ØĞÅÏ¢
+                            // ÕıÔò±í´ïÊ½  \s±íÊ¾¿Õ¸ñ£¬£û1£¬£ı±íÊ¾1Ò»¸öÒÔÉÏ
                             if(!fileMessage.split("\\s+")[8].equals(".") && !fileMessage.split("\\s+")[8].equals("..")){
-                                /**æ–‡ä»¶å¤§å°*/
+                                /**ÎÄ¼ş´óĞ¡*/
                                 String sizeOrDir="";
-                                if (fileMessage.startsWith("d")) {//å¦‚æœæ˜¯ç›®å½•
+                                if (fileMessage.startsWith("d")) {//Èç¹ûÊÇÄ¿Â¼
                                     sizeOrDir="<DIR>";
-                                }else if (fileMessage.startsWith("-")) {//å¦‚æœæ˜¯æ–‡ä»¶
+                                }else if (fileMessage.startsWith("-")) {//Èç¹ûÊÇÎÄ¼ş
                                     sizeOrDir=fileMessage.split("\\s+")[4];
                                 }
-                                /**æ–‡ä»¶å*/
+                                /**ÎÄ¼şÃû*/
                                 String fileName=fileMessage.split("\\s+")[8];
-                                /**æ–‡ä»¶æ—¥æœŸ*/
+                                /**ÎÄ¼şÈÕÆÚ*/
                                 String dateStr =fileMessage.split("\\s+")[5] +" "+fileMessage.split("\\s+")[6]+" " +fileMessage.split("\\s+")[7];
-//								System.out.println("sizeOrDir="+sizeOrDir);
-//								System.out.println("fileName="+fileName);
-//								System.out.println("dateStr="+dateStr);
+								//System.out.println("sizeOrDir="+sizeOrDir);
+								//System.out.println("fileName="+fileName);
+								//System.out.println("dateStr="+dateStr);
 
                                 FtpFile ftpFile = new FtpFile();
-                                // å°†FTPç›®å½•ä¿¡æ¯åˆå§‹åŒ–åˆ°FTPæ–‡ä»¶å¯¹è±¡ä¸­
+                                // ½«FTPÄ¿Â¼ĞÅÏ¢³õÊ¼»¯µ½FTPÎÄ¼ş¶ÔÏóÖĞ
                                 ftpFile.setLastDate(dateStr);
                                 ftpFile.setSize(sizeOrDir);
                                 ftpFile.setName(fileName);
                                 ftpFile.setPath(pwd);
-                                // å°†æ–‡ä»¶ä¿¡æ¯æ·»åŠ åˆ°è¡¨æ ¼ä¸­
+                                // ½«ÎÄ¼şĞÅÏ¢Ìí¼Óµ½±í¸ñÖĞ
                                 model.addRow(new Object[] { ftpFile, ftpFile.getSize(),
                                         dateStr });
                             }
 
-//							j=i+1;//ä¸Šä¸€æ¬¡ä½ç½®ä¸ºå­—ç¬¦æ¨¡å¼
-                            j=i+2;//ä¸Šä¸€æ¬¡ä½ç½®ä¸ºäºŒè¿›åˆ¶æ¨¡å¼
+							//j=i+1;//ÉÏÒ»´ÎÎ»ÖÃÎª×Ö·ûÄ£Ê½
+                            j=i+2;//ÉÏÒ»´ÎÎ»ÖÃÎª¶ş½øÖÆÄ£Ê½
                         }
                         i=i+1;
                     }
                     list.close();
-
-                    /**********************************************************************
-                     //ä¸‹é¢çš„æ–¹æ³•å¤ªæ­»äº†,ä¸å¤Ÿçµæ´»
-                     BufferedReader br = new BufferedReader(
-                     new InputStreamReader(list)); // åˆ›å»ºå­—ç¬¦è¾“å…¥æµ
-                     String data = null;
-                     // è¯»å–è¾“å…¥æµä¸­çš„æ–‡ä»¶ç›®å½•
-                     while ((data = br.readLine()) != null) {
-                     // åˆ›å»ºFTPæ–‡ä»¶å¯¹è±¡
-                     FtpFile ftpFile = new FtpFile();
-                     // è·å–FTPæœåŠ¡å™¨ç›®å½•ä¿¡æ¯
-                     String dateStr = data.substring(39, 51).trim();
-                     String sizeOrDir = data.substring(23, 38).trim();
-                     String fileName = data.substring(52, data.length())
-                     .trim();
-                     // å°†FTPç›®å½•ä¿¡æ¯åˆå§‹åŒ–åˆ°FTPæ–‡ä»¶å¯¹è±¡ä¸­
-                     ftpFile.setLastDate(dateStr);
-                     ftpFile.setSize(sizeOrDir);
-                     ftpFile.setName(fileName);
-                     ftpFile.setPath(pwd);
-                     // å°†æ–‡ä»¶ä¿¡æ¯æ·»åŠ åˆ°è¡¨æ ¼ä¸­
-                     model.addRow(new Object[] { ftpFile, ftpFile.getSize(),
-                     dateStr });
-                     }
-                     br.close(); // å…³é—­è¾“å…¥æµ
-                     **********************************************************************/
 
                 } catch (IOException ex) {
                     Logger.getLogger(FTPClientFrame.class.getName()).log(
@@ -311,7 +250,7 @@ public class FtpPanel extends javax.swing.JPanel{
                 }
             }
         };
-        if (SwingUtilities.isEventDispatchThread()) // å¯åŠ¨çº¿ç¨‹å¯¹è±¡
+        if (SwingUtilities.isEventDispatchThread()) // Æô¶¯Ïß³Ì¶ÔÏó
             runnable.run();
         else
             SwingUtilities.invokeLater(runnable);
@@ -319,11 +258,11 @@ public class FtpPanel extends javax.swing.JPanel{
 
 
     /**
-     * è®¾ç½®FTPè¿æ¥ï¼Œå¹¶å¯åŠ¨ä¸‹è½½é˜Ÿåˆ—çº¿ç¨‹çš„æ–¹æ³•
+     * ÉèÖÃFTPÁ¬½Ó£¬²¢Æô¶¯ÏÂÔØ¶ÓÁĞÏß³ÌµÄ·½·¨
      */
     public void setFtpClient(FtpClient ftpClient) {
         this.ftpClient = ftpClient;
-        // ä»¥30ç§’ä¸ºé—´éš”ä¸æœåŠ¡å™¨ä¿æŒé€šè®¯
+        // ÒÔ30ÃëÎª¼ä¸ôÓë·şÎñÆ÷±£³ÖÍ¨Ñ¶
         final Timer timer = new Timer(3000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -342,20 +281,20 @@ public class FtpPanel extends javax.swing.JPanel{
     }
 
     /**
-     * åˆ·æ–°FTPèµ„æºç®¡ç†é¢æ¿çš„å½“å‰æ–‡ä»¶å¤¹
+     * Ë¢ĞÂFTP×ÊÔ´¹ÜÀíÃæ°åµÄµ±Ç°ÎÄ¼ş¼Ğ
      */
     public void refreshCurrentFolder() {
         try {
-            // è·å–æœåŠ¡å™¨æ–‡ä»¶åˆ—è¡¨
+            // »ñÈ¡·şÎñÆ÷ÎÄ¼şÁĞ±í
             InputStream list = ftpClient.list(ftpClient.getWorkingDirectory());
-            listFtpFiles(list); // è°ƒç”¨è§£ææ–¹æ³•
+            listFtpFiles(list); // µ÷ÓÃ½âÎö·½·¨
         } catch (IOException | FtpProtocolException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * å¼€å§‹ä¸‹è½½é˜Ÿåˆ—çº¿ç¨‹
+     * ¿ªÊ¼ÏÂÔØ¶ÓÁĞÏß³Ì
      */
     private void startDownThread() {
         if (thread != null)
@@ -365,7 +304,7 @@ public class FtpPanel extends javax.swing.JPanel{
     }
 
     /**
-     * åœæ­¢ä¸‹è½½é˜Ÿåˆ—çº¿ç¨‹
+     * Í£Ö¹ÏÂÔØ¶ÓÁĞÏß³Ì
      */
     public void stopDownThread() {
         if (thread != null) {
@@ -389,7 +328,7 @@ public class FtpPanel extends javax.swing.JPanel{
     }
 
     /**
-     * æ¸…é™¤FTPèµ„æºè¡¨æ ¼å†…å®¹çš„æ–¹æ³•
+     * Çå³ıFTP×ÊÔ´±í¸ñÄÚÈİµÄ·½·¨
      */
     public void clearTable() {
         FtpTableModel model = (FtpTableModel) ftpDiskTable.getModel();

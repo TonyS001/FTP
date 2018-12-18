@@ -1,10 +1,8 @@
 package com.ftp.panel.mainPanel;
 
 import sun.net.ftp.FtpProtocolException;
-
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;

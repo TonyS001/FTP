@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/src/com/ftp/BugItemAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/CutLinkAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/FTPmain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/LinkToAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/FTPTableCellRanderer.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/QueueTableCellRanderer.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/CreateFolderAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/DelFileAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalTableModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RefreshAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RenameAction.java" charset="GBK" />
@@ -13,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DelFileAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpTableModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/RefreshAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/RenameAction.java" charset="GBK" />
@@ -23,5 +31,10 @@
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/DownloadPanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/QueuePanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/UploadPanel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/utils/DiskFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/utils/FileInterface.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/utils/FtpFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/utils/ProgressArg.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/utils/SiteInfoBean.java" charset="GBK" />
   </component>
 </project>

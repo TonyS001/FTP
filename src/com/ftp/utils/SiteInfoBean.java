@@ -1,60 +1,60 @@
 package com.ftp.utils;
 
-//ç«™ç‚¹ä¿¡æ¯çš„JavaBeanç±»ï¼Œç”¨äºå­˜å‚¨FTPç«™ç‚¹ä¿¡æ¯
+//Õ¾µãĞÅÏ¢µÄJavaBeanÀà£¬ÓÃÓÚ´æ´¢FTPÕ¾µãĞÅÏ¢
 public class SiteInfoBean {
-    private String siteName; // ç«™ç‚¹åç§°
-    private String server; // æœåŠ¡å™¨åœ°å€
-    private String userName; // ç™»å½•ç”¨æˆ·å
-    private int port; // FTPæœåŠ¡å™¨ç«¯å£
-    private String id; // IDç¼–å·
+    private String siteName; // Õ¾µãÃû³Æ
+    private String server; // ·şÎñÆ÷µØÖ·
+    private String userName; // µÇÂ¼ÓÃ»§Ãû
+    private int port; // FTP·şÎñÆ÷¶Ë¿Ú
+    private String id; // ID±àºÅ
 
     /**
-     * ä¸ºå„ç§å˜é‡èµ‹å€¼çš„æ„é€ æ–¹æ³•
+     * Îª¸÷ÖÖ±äÁ¿¸³ÖµµÄ¹¹Ôì·½·¨
      * @param siteName
-     *            ç«™ç‚¹åç§°
+     *            Õ¾µãÃû³Æ
      * @param server
-     *            æœåŠ¡å™¨åœ°å€
+     *            ·şÎñÆ÷µØÖ·
      * @param port
-     *            ç«¯å£å·
+     *            ¶Ë¿ÚºÅ
      * @param userName
-     *            ç”¨æˆ·å
+     *            ÓÃ»§Ãû
      */
     public SiteInfoBean(String siteName, String server, int port,String userName) {
-        id = System.currentTimeMillis() + ""; // èµ‹å€¼IDç¼–å·
-        this.siteName = siteName; // èµ‹å€¼æœåŠ¡å™¨åç§°
-        this.server = server; // èµ‹å€¼æœåŠ¡å™¨åœ°å€
-        this.port = port; // èµ‹å€¼ç«¯å£å·
-        this.userName = userName; // èµ‹å€¼ç”¨æˆ·å
+        id = System.currentTimeMillis() + ""; // ¸³ÖµID±àºÅ
+        this.siteName = siteName; // ¸³Öµ·şÎñÆ÷Ãû³Æ
+        this.server = server; // ¸³Öµ·şÎñÆ÷µØÖ·
+        this.port = port; // ¸³Öµ¶Ë¿ÚºÅ
+        this.userName = userName; // ¸³ÖµÓÃ»§Ãû
     }
 
     /**
-     * è§£æå±æ€§å­—ç¬¦ä¸²è¿›è¡Œèµ‹å€¼çš„æ„é€ æ–¹æ³•
+     * ½âÎöÊôĞÔ×Ö·û´®½øĞĞ¸³ÖµµÄ¹¹Ôì·½·¨
      *
      * @param id
-     *            ç¼–å·
+     *            ±àºÅ
      * @param info
-     *            å±æ€§ä¿¡æ¯å­—ç¬¦ä¸²
+     *            ÊôĞÔĞÅÏ¢×Ö·û´®
      */
     public SiteInfoBean(String id, String info) {
-        this.id = id; // èµ‹å€¼IDç¼–å·
-        String[] infos = info.split(","); // è§£æå±æ€§ä¿¡æ¯å­—ç¬¦ä¸²
-        this.siteName = infos[0]; // è§£æç«™ç‚¹åç§°
-        this.server = infos[1]; // è§£ææœåŠ¡å™¨åœ°å€
-        this.port = Integer.valueOf(infos[2]); // è§£æç«¯å£å·
-        this.userName = infos[3]; // è§£æç”¨æˆ·å
+        this.id = id; // ¸³ÖµID±àºÅ
+        String[] infos = info.split(","); // ½âÎöÊôĞÔĞÅÏ¢×Ö·û´®
+        this.siteName = infos[0]; // ½âÎöÕ¾µãÃû³Æ
+        this.server = infos[1]; // ½âÎö·şÎñÆ÷µØÖ·
+        this.port = Integer.valueOf(infos[2]); // ½âÎö¶Ë¿ÚºÅ
+        this.userName = infos[3]; // ½âÎöÓÃ»§Ãû
     }
 
     /**
-     * è·å–ç«™ç‚¹åç§°çš„æ–¹æ³•
+     * »ñÈ¡Õ¾µãÃû³ÆµÄ·½·¨
      *
-     * @return ç«™ç‚¹åç§°
+     * @return Õ¾µãÃû³Æ
      */
     public String getSiteName() {
         return siteName;
     }
 
     /**
-     * è®¾ç½®ç«™ç‚¹åç§°çš„æ–¹æ³•
+     * ÉèÖÃÕ¾µãÃû³ÆµÄ·½·¨
      *
      * @param siteName
      */
@@ -87,13 +87,13 @@ public class SiteInfoBean {
     }
 
     /**
-     * é‡å†™çˆ¶ç±»toString()æ–¹æ³•
+     * ÖØĞ´¸¸ÀàtoString()·½·¨
      *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        return siteName; // è¿™ä¸ªè¿”å›å€¼å°†æ˜¾ç¤ºåœ¨åˆ—è¡¨ç»„ä»¶ä¸­
+        return siteName; // Õâ¸ö·µ»ØÖµ½«ÏÔÊ¾ÔÚÁĞ±í×é¼şÖĞ
     }
 
     public String getId() {

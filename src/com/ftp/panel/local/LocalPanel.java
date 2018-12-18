@@ -53,15 +53,15 @@ public class LocalPanel extends javax.swing.JPanel {
 	}
 
 	/**
-	 * ç•Œé¢å¸ƒå±€ä¸åˆå§‹åŒ–æ–¹æ³•
+	 * ½çÃæ²¼¾ÖÓë³õÊ¼»¯·½·¨
 	 */
 	private void initComponents() {
 		ActionMap actionMap = getActionMap();
-		actionMap.put("delAction", new DelFileAction(this, "åˆ é™¤", null));
-		actionMap.put("renameAction", new RenameAction(this, "é‡å‘½å", null));
-		actionMap.put("createFolderAction", new CreateFolderAction(this, "æ–°å»ºæ–‡ä»¶å¤¹", null));
-		actionMap.put("uploadAction", new UploadAction(this, "ä¸Šä¼ ", null));
-		actionMap.put("refreshAction", new RefreshAction(this, "åˆ·æ–°", null));
+		actionMap.put("delAction", new DelFileAction(this, "É¾³ı", null));
+		actionMap.put("renameAction", new RenameAction(this, "ÖØÃüÃû", null));
+		actionMap.put("createFolderAction", new CreateFolderAction(this, "ĞÂ½¨ÎÄ¼ş¼Ğ", null));
+		actionMap.put("uploadAction", new UploadAction(this, "ÉÏ´«", null));
+		actionMap.put("refreshAction", new RefreshAction(this, "Ë¢ĞÂ", null));
 
 		java.awt.GridBagConstraints gridBagConstraints;
 
@@ -78,11 +78,11 @@ public class LocalPanel extends javax.swing.JPanel {
 		localDiskTable.setDragEnabled(true);
 		localSelFilePathLabel = new javax.swing.JLabel();
 		/**
-		 *  å‘ç°æœ‰è¾¹æ¡†æ·»åŠ ä¸€ä¸ªæ ‡é¢˜ï¼Œä½¿å…¶å…·æœ‰æŒ‡å®šçš„ä½ç½®å’Œé»˜è®¤å­—ä½“å’Œæ–‡æœ¬é¢œè‰²ï¼ˆç”±å½“å‰å¤–è§‚ç¡®å®šï¼‰ã€‚
-		 *  TitledBorder.CENTER: å°†æ ‡é¢˜æ–‡æœ¬ç½®äºè¾¹æ¡†çº¿çš„ä¸­å¿ƒã€‚
-		 *  TitledBorder.ABOVE_TOP: å°†æ ‡é¢˜ç½®äºè¾¹æ¡†é¡¶ç«¯çº¿çš„ä¸Šéƒ¨ã€‚
+		 *  ÏòÏÖÓĞ±ß¿òÌí¼ÓÒ»¸ö±êÌâ£¬Ê¹Æä¾ßÓĞÖ¸¶¨µÄÎ»ÖÃºÍÄ¬ÈÏ×ÖÌåºÍÎÄ±¾ÑÕÉ«£¨ÓÉµ±Ç°Íâ¹ÛÈ·¶¨£©¡£
+		 *  TitledBorder.CENTER: ½«±êÌâÎÄ±¾ÖÃÓÚ±ß¿òÏßµÄÖĞĞÄ¡£
+		 *  TitledBorder.ABOVE_TOP: ½«±êÌâÖÃÓÚ±ß¿ò¶¥¶ËÏßµÄÉÏ²¿¡£
 		 */
-		setBorder(javax.swing.BorderFactory.createTitledBorder(null, "æœ¬åœ°",
+		setBorder(javax.swing.BorderFactory.createTitledBorder(null, "±¾µØ",
 				javax.swing.border.TitledBorder.CENTER,
 				javax.swing.border.TitledBorder.ABOVE_TOP));
 		setLayout(new java.awt.GridBagLayout());
@@ -90,34 +90,34 @@ public class LocalPanel extends javax.swing.JPanel {
 		toolBar.setRollover(true);
 		toolBar.setFloatable(false);
 
-		delButton.setText("åˆ é™¤");
+		delButton.setText("É¾³ı");
 		delButton.setFocusable(false);
 		delButton.setAction(actionMap.get("delAction"));
 		toolBar.add(delButton);
 
-		renameButton.setText("é‡å‘½å");
+		renameButton.setText("ÖØÃüÃû");
 		renameButton.setFocusable(false);
 		renameButton.setAction(actionMap.get("renameAction"));
 		toolBar.add(renameButton);
 
-		createFolderButton.setText("æ–°æ–‡ä»¶å¤¹");
+		createFolderButton.setText("ĞÂÎÄ¼ş¼Ğ");
 		createFolderButton.setFocusable(false);
 		createFolderButton.setAction(actionMap.get("createFolderAction"));
 		toolBar.add(createFolderButton);
 
-		uploadButton.setText("ä¸Šä¼ ");
+		uploadButton.setText("ÉÏ´«");
 		uploadButton.setFocusable(false);
 		uploadButton.setAction(actionMap.get("uploadAction"));
 		toolBar.add(uploadButton);
 
 		JButton refreshButton = new JButton();
-		refreshButton.setText("åˆ·æ–°");
+		refreshButton.setText("Ë¢ĞÂ");
 		refreshButton.setFocusable(false);
 		refreshButton.setAction(actionMap.get("refreshAction"));
 		toolBar.add(refreshButton);
 		toolBar.add(jSeparator1);
 		
-		//File.listRoots():åˆ—å‡ºå¯ç”¨çš„æ–‡ä»¶ç³»ç»Ÿæ ¹ã€‚
+		//File.listRoots():ÁĞ³ö¿ÉÓÃµÄÎÄ¼şÏµÍ³¸ù¡£
 		localDiskComboBox.setModel(new DefaultComboBoxModel(File.listRoots())); 
 		localDiskComboBox.addItemListener(new java.awt.event.ItemListener() {
 			public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -143,14 +143,14 @@ public class LocalPanel extends javax.swing.JPanel {
 		});
 		scrollPane.setViewportView(localDiskTable);
 		scrollPane.getViewport().setBackground(Color.WHITE);
-		//è®¾ç½®æ¸²æŸ“æœ¬åœ°èµ„æºå’ŒFTPèµ„æºè¡¨æ ¼ç»„ä»¶çš„æ¸²æŸ“å™¨
+		//ÉèÖÃäÖÈ¾±¾µØ×ÊÔ´ºÍFTP×ÊÔ´±í¸ñ×é¼şµÄäÖÈ¾Æ÷
 		localDiskTable.getColumnModel().getColumn(0).setCellRenderer(FTPTableCellRanderer.getCellRanderer());
-		//RowSorter çš„ä¸€ä¸ªå®ç°ï¼Œå®ƒä½¿ç”¨ TableModel æä¾›æ’åºå’Œè¿‡æ»¤æ“ä½œã€‚
+		//RowSorter µÄÒ»¸öÊµÏÖ£¬ËüÊ¹ÓÃ TableModel Ìá¹©ÅÅĞòºÍ¹ıÂË²Ù×÷¡£
 		sorter = new TableRowSorter<TableModel>(localDiskTable.getModel());
 		TableStringConverter converter = new TableConverter();
-		//è®¾ç½®è´Ÿè´£å°†å€¼ä»æ¨¡å‹è½¬æ¢ä¸ºå­—ç¬¦ä¸²çš„å¯¹è±¡ã€‚
+		//ÉèÖÃ¸ºÔğ½«Öµ´ÓÄ£ĞÍ×ª»»Îª×Ö·û´®µÄ¶ÔÏó¡£
 		sorter.setStringConverter(converter);
-		//è®¾ç½® RowSorterã€‚RowSorter ç”¨äºæä¾›å¯¹ JTable çš„æ’åºå’Œè¿‡æ»¤ã€‚ 
+		//ÉèÖÃ RowSorter¡£RowSorter ÓÃÓÚÌá¹©¶Ô JTable µÄÅÅĞòºÍ¹ıÂË¡£ 
 		localDiskTable.setRowSorter(sorter);
 		sorter.toggleSortOrder(0);
 
@@ -171,136 +171,136 @@ public class LocalPanel extends javax.swing.JPanel {
 	}
 
 	/**
-	 * æœ¬åœ°ç£ç›˜ä¸‹æ‹‰é€‰æ‹©æ¡†çš„é€‰é¡¹æ”¹å˜äº‹ä»¶å¤„ç†æ–¹æ³•ï¼Œç”±äº‹ä»¶ç›‘å¬å™¨è°ƒç”¨
+	 * ±¾µØ´ÅÅÌÏÂÀ­Ñ¡Ôñ¿òµÄÑ¡Ïî¸Ä±äÊÂ¼ş´¦Àí·½·¨£¬ÓÉÊÂ¼ş¼àÌıÆ÷µ÷ÓÃ
 	 */
 	private void localDiskComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
 		if (evt.getStateChange() == ItemEvent.SELECTED) {
-			Object item = evt.getItem(); // è·å–é€‰æ‹©çš„ä¸‹æ‹‰åˆ—è¡¨çš„é€‰é¡¹
-			if (item instanceof File) { // å¦‚æœè¯¥é€‰é¡¹æ˜¯Fileç±»çš„å®ä¾‹å¯¹è±¡
-				File selDisk = (File) item; // å°†è¯¥é€‰é¡¹è½¬æ¢æˆFileç±»
-				// è°ƒç”¨listLocalFiles()æ–¹æ³•ï¼Œæ˜¾ç¤ºè¯¥Fileç±»æŒ‡å®šçš„ç£ç›˜æ–‡ä»¶åˆ—è¡¨
+			Object item = evt.getItem(); // »ñÈ¡Ñ¡ÔñµÄÏÂÀ­ÁĞ±íµÄÑ¡Ïî
+			if (item instanceof File) { // Èç¹û¸ÃÑ¡ÏîÊÇFileÀàµÄÊµÀı¶ÔÏó
+				File selDisk = (File) item; // ½«¸ÃÑ¡Ïî×ª»»³ÉFileÀà
+				// µ÷ÓÃlistLocalFiles()·½·¨£¬ÏÔÊ¾¸ÃFileÀàÖ¸¶¨µÄ´ÅÅÌÎÄ¼şÁĞ±í
 				listLocalFiles(selDisk);
 			}
 		}
 	}
 
 	/**
-	 * åˆ·æ–°æŒ‡å®šæ–‡ä»¶å¤¹çš„æ–¹æ³•
+	 * Ë¢ĞÂÖ¸¶¨ÎÄ¼ş¼ĞµÄ·½·¨
 	 */
 	void refreshFolder(File file) {
 		listLocalFiles(file);
 	}
 
 	/**
-	 * åˆ·æ–°æœ¬åœ°å½“å‰æ–‡ä»¶å¤¹çš„æ–¹æ³•
+	 * Ë¢ĞÂ±¾µØµ±Ç°ÎÄ¼ş¼ĞµÄ·½·¨
 	 */
 	public void refreshCurrentFolder() {
-		final File file = getCurrentFolder(); // è·å–å½“å‰æ–‡ä»¶å¤¹
-		Runnable runnable = new Runnable() { // åˆ›å»ºæ–°çš„çº¿ç¨‹
+		final File file = getCurrentFolder(); // »ñÈ¡µ±Ç°ÎÄ¼ş¼Ğ
+		Runnable runnable = new Runnable() { // ´´½¨ĞÂµÄÏß³Ì
 			public void run() {
-				listLocalFiles(file); // é‡è½½å½“å‰æ–‡ä»¶å¤¹çš„åˆ—è¡¨åˆ°è¡¨æ ¼ä¸­
+				listLocalFiles(file); // ÖØÔØµ±Ç°ÎÄ¼ş¼ĞµÄÁĞ±íµ½±í¸ñÖĞ
 			}
 		};
-		//å¯¼è‡´ runnable çš„ run æ–¹æ³•åœ¨ EventQueue çš„æŒ‡æ´¾çº¿ç¨‹ä¸Šè¢«è°ƒç”¨ã€‚
-		SwingUtilities.invokeLater(runnable); // åœ¨äº‹ä»¶çº¿ç¨‹ä¸­è°ƒç”¨è¯¥çº¿ç¨‹å¯¹è±¡
+		//µ¼ÖÂ runnable µÄ run ·½·¨ÔÚ EventQueue µÄÖ¸ÅÉÏß³ÌÉÏ±»µ÷ÓÃ¡£
+		SwingUtilities.invokeLater(runnable); // ÔÚÊÂ¼şÏß³ÌÖĞµ÷ÓÃ¸ÃÏß³Ì¶ÔÏó
 	}
 
 	/**
-	 * è·å–å½“å‰æ–‡ä»¶å¤¹
+	 * »ñÈ¡µ±Ç°ÎÄ¼ş¼Ğ
 	 */
 	public File getCurrentFolder() {
-		// ä½¿ç”¨è·¯å¾„æ ‡ç­¾çš„è·¯å¾„åˆ›å»ºå½“å‰æ–‡ä»¶å¤¹å¯¹è±¡
+		// Ê¹ÓÃÂ·¾¶±êÇ©µÄÂ·¾¶´´½¨µ±Ç°ÎÄ¼ş¼Ğ¶ÔÏó
 		File file = new File(localSelFilePathLabel.getText());
-		// å¦‚æœè¡¨æ ¼é€‰æ‹©äº†æ–‡ä»¶å¤¹ï¼Œæˆ–é€‰æ‹©çš„æ–‡ä»¶æœ‰çœŸæ˜¯çš„ä¸Šçº§æ–‡ä»¶å¤¹
+		// Èç¹û±í¸ñÑ¡ÔñÁËÎÄ¼ş¼Ğ£¬»òÑ¡ÔñµÄÎÄ¼şÓĞÕæÊÇµÄÉÏ¼¶ÎÄ¼ş¼Ğ
 		if (localDiskTable.getSelectedRow() > 1 && file.getParentFile() != null)
-			file = file.getParentFile(); // è·å–è¯¥ä¸Šçº§æ–‡ä»¶å¤¹
-		return file; //  è¿”å›æ–‡ä»¶å¤¹å¯¹è±¡
+			file = file.getParentFile(); // »ñÈ¡¸ÃÉÏ¼¶ÎÄ¼ş¼Ğ
+		return file; //  ·µ»ØÎÄ¼ş¼Ğ¶ÔÏó
 	}
 
 	/**
-	 * æœ¬åœ°ç£ç›˜æ–‡ä»¶çš„è¡¨æ ¼å•å‡»å’ŒåŒå‡»äº‹ä»¶å¤„ç†æ–¹æ³•
+	 * ±¾µØ´ÅÅÌÎÄ¼şµÄ±í¸ñµ¥»÷ºÍË«»÷ÊÂ¼ş´¦Àí·½·¨
 	 */
 	private void localDiskTableMouseClicked(java.awt.event.MouseEvent evt) {
-		int selectedRow = localDiskTable.getSelectedRow(); // è·å–é€‰æ‹©çš„è¡¨æ ¼è¡Œå·
+		int selectedRow = localDiskTable.getSelectedRow(); // »ñÈ¡Ñ¡ÔñµÄ±í¸ñĞĞºÅ
 		if (selectedRow < 0)
 			return;
-		// è·å–è¡¨æ ¼ä¸­é€‰æ‹©çš„å½“å‰è¡Œçš„ç¬¬ä¸€ä¸ªå­—æ®µçš„å€¼
+		// »ñÈ¡±í¸ñÖĞÑ¡ÔñµÄµ±Ç°ĞĞµÄµÚÒ»¸ö×Ö¶ÎµÄÖµ
 		Object value = localDiskTable.getValueAt(selectedRow, 0);
-		if (value instanceof DiskFile) { //  å¦‚æœè¯¥å€¼æ˜¯DiskFileçš„å®ä¾‹å¯¹è±¡
+		if (value instanceof DiskFile) { //  Èç¹û¸ÃÖµÊÇDiskFileµÄÊµÀı¶ÔÏó
 			DiskFile selFile = (DiskFile) value;
-			// è®¾ç½®çŠ¶æ€æ çš„æœ¬åœ°æ–‡ä»¶è·¯å¾„
+			// ÉèÖÃ×´Ì¬À¸µÄ±¾µØÎÄ¼şÂ·¾¶
 			localSelFilePathLabel.setText(selFile.getAbsolutePath());
-			if (evt.getClickCount() >= 2) { //  å¦‚æœæ˜¯åŒå‡»é¼ æ ‡
-				if (selFile.isDirectory()) { // å¹¶ä¸”é€‰æ‹©çš„æ˜¯æ–‡ä»¶å¤¹
-					listLocalFiles(selFile); // æ˜¾ç¤ºè¯¥æ–‡ä»¶å¤¹çš„å†…å®¹åˆ—è¡¨
-				} else if (desktop != null) { // å¦‚æœä¸æ˜¯æ–‡ä»¶å¤¹
+			if (evt.getClickCount() >= 2) { //  Èç¹ûÊÇË«»÷Êó±ê
+				if (selFile.isDirectory()) { // ²¢ÇÒÑ¡ÔñµÄÊÇÎÄ¼ş¼Ğ
+					listLocalFiles(selFile); // ÏÔÊ¾¸ÃÎÄ¼ş¼ĞµÄÄÚÈİÁĞ±í
+				} else if (desktop != null) { // Èç¹û²»ÊÇÎÄ¼ş¼Ğ
 					try {
-						desktop.open(selFile); // å…³è”æœ¬åœ°ç³»ç»Ÿç¨‹åºæ‰“å¼€è¯¥æ–‡ä»¶
+						desktop.open(selFile); // ¹ØÁª±¾µØÏµÍ³³ÌĞò´ò¿ª¸ÃÎÄ¼ş
 					} catch (IOException ex) {
 						Logger.getLogger(FTPClientFrame.class.getName()).log(
 								Level.SEVERE, null, ex);
 					}
 				}
 			}
-		} else { // å¦‚æœé€‰æ‹©çš„è¡¨æ ¼å†…å®¹ä¸æ˜¯DiskFileç±»çš„å®ä¾‹
-			// åˆ¤æ–­é€‰æ‹©çš„æ˜¯ä¸æ˜¯..é€‰é¡¹
+		} else { // Èç¹ûÑ¡ÔñµÄ±í¸ñÄÚÈİ²»ÊÇDiskFileÀàµÄÊµÀı
+			// ÅĞ¶ÏÑ¡ÔñµÄÊÇ²»ÊÇ..Ñ¡Ïî
 			if (evt.getClickCount() >= 2 && value.equals("..")) {
-				// åˆ›å»ºå½“å‰é€‰æ‹©æ–‡ä»¶çš„ä¸´æ—¶æ–‡ä»¶
+				// ´´½¨µ±Ç°Ñ¡ÔñÎÄ¼şµÄÁÙÊ±ÎÄ¼ş
 				File tempFile = new File((localSelFilePathLabel.getText()));
-				// æ˜¾ç¤ºé€‰æ‹©çš„æ–‡ä»¶çš„ä¸Šçº§ç›®å½•åˆ—è¡¨
+				// ÏÔÊ¾Ñ¡ÔñµÄÎÄ¼şµÄÉÏ¼¶Ä¿Â¼ÁĞ±í
 				listLocalFiles(tempFile.getParentFile());
 			}
 		}
 	}
 
 	/**
-	 * è¯»å–æœ¬åœ°æ–‡ä»¶åˆ°è¡¨æ ¼çš„æ–¹æ³•
+	 * ¶ÁÈ¡±¾µØÎÄ¼şµ½±í¸ñµÄ·½·¨
 	 */
 	private void listLocalFiles(File selDisk) {
 		if (selDisk == null || selDisk.isFile()) {
 			return;
 		}
 		localSelFilePathLabel.setText(selDisk.getAbsolutePath());
-		File[] listFiles = selDisk.listFiles(); // è·å–ç£ç›˜æ–‡ä»¶åˆ—è¡¨
-		// è·å–è¡¨æ ¼çš„æ•°æ®æ¨¡å‹
+		File[] listFiles = selDisk.listFiles(); // »ñÈ¡´ÅÅÌÎÄ¼şÁĞ±í
+		// »ñÈ¡±í¸ñµÄÊı¾İÄ£ĞÍ
 		DefaultTableModel model = (DefaultTableModel) localDiskTable.getModel();
-		model.setRowCount(0); //  æ¸…é™¤æ¨¡å‹çš„å†…å®¹
-		model.addRow(new Object[] { ".", "<DIR>", "" }); // åˆ›å»º.é€‰é¡¹
-		model.addRow(new Object[] { "..", "<DIR>", "" }); // åˆ›å»º..é€‰é¡¹
+		model.setRowCount(0); //  Çå³ıÄ£ĞÍµÄÄÚÈİ
+		model.addRow(new Object[] { ".", "<DIR>", "" }); // ´´½¨.Ñ¡Ïî
+		model.addRow(new Object[] { "..", "<DIR>", "" }); // ´´½¨..Ñ¡Ïî
 		if (listFiles == null) {
-			JOptionPane.showMessageDialog(this, "è¯¥ç£ç›˜æ— æ³•è®¿é—®");
+			JOptionPane.showMessageDialog(this, "¸Ã´ÅÅÌÎŞ·¨·ÃÎÊ");
 			return;
 		}
-		// éå†ç£ç›˜æ ¹æ–‡ä»¶å¤¹çš„å†…å®¹ï¼Œæ·»åŠ åˆ°è¡¨æ ¼ä¸­
+		// ±éÀú´ÅÅÌ¸ùÎÄ¼ş¼ĞµÄÄÚÈİ£¬Ìí¼Óµ½±í¸ñÖĞ
 		for (File file : listFiles) {
-			File diskFile = new DiskFile(file); // åˆ›å»ºæ–‡ä»¶å¯¹è±¡
-			String length = file.length() + "B "; // è·å–æ–‡ä»¶å¤§å°
-			if (file.length() > 1000 * 1000 * 1000) { // è®¡ç®—æ–‡ä»¶Gå•ä½
+			File diskFile = new DiskFile(file); // ´´½¨ÎÄ¼ş¶ÔÏó
+			String length = file.length() + "B "; // »ñÈ¡ÎÄ¼ş´óĞ¡
+			if (file.length() > 1000 * 1000 * 1000) { // ¼ÆËãÎÄ¼şGµ¥Î»
 				length = file.length() / 1000000000 + "G ";
 			}
-			if (file.length() > 1000 * 1000) { // è®¡ç®—æ–‡ä»¶Må•ä½
+			if (file.length() > 1000 * 1000) { // ¼ÆËãÎÄ¼şMµ¥Î»
 				length = file.length() / 1000000 + "M ";
 			}
 			if (file.length() > 1000) {
-				length = file.length() / 1000 + "K "; // è®¡ç®—æ–‡ä»¶Kå•ä½
+				length = file.length() / 1000 + "K "; // ¼ÆËãÎÄ¼şKµ¥Î»
 			}
-			if (file.isDirectory()) { // æ˜¾ç¤ºæ–‡ä»¶å¤¹æ ‡å¿—
+			if (file.isDirectory()) { // ÏÔÊ¾ÎÄ¼ş¼Ğ±êÖ¾
 				length = "<DIR>";
 			}
-			// è·å–æ–‡ä»¶çš„æœ€åä¿®æ”¹æ—¥æœŸ
+			// »ñÈ¡ÎÄ¼şµÄ×îºóĞŞ¸ÄÈÕÆÚ
 			String modifDate = new Date(file.lastModified()).toLocaleString();
 			if (!file.canRead()) {
-				length = "æœªçŸ¥";
-				modifDate = "æœªçŸ¥";
+				length = "Î´Öª";
+				modifDate = "Î´Öª";
 			}
-			// å°†å•ä¸ªæ–‡ä»¶çš„ä¿¡æ¯æ·»åŠ åˆ°è¡¨æ ¼çš„æ•°æ®æ¨¡å‹ä¸­
+			// ½«µ¥¸öÎÄ¼şµÄĞÅÏ¢Ìí¼Óµ½±í¸ñµÄÊı¾İÄ£ĞÍÖĞ
 			model.addRow(new Object[] { diskFile, length, modifDate });
 		}
-		localDiskTable.clearSelection(); // å–æ¶ˆè¡¨æ ¼çš„é€‰æ‹©é¡¹
+		localDiskTable.clearSelection(); // È¡Ïû±í¸ñµÄÑ¡ÔñÏî
 	}
 
 	/**
-	 * åœæ­¢æ–‡ä»¶ä¸Šä¼ çº¿ç¨‹çš„æ–¹æ³•
+	 * Í£Ö¹ÎÄ¼şÉÏ´«Ïß³ÌµÄ·½·¨
 	 */
 	public void stopUploadThread() {
 		if (uploadThread != null)
@@ -312,7 +312,7 @@ public class LocalPanel extends javax.swing.JPanel {
 	}
 
 	/**
-	 * è®¾ç½®FTPè¿æ¥ï¼Œå¹¶å¯åŠ¨ä¸Šä¼ é˜Ÿåˆ—çº¿ç¨‹çš„æ–¹æ³•ã€‚
+	 * ÉèÖÃFTPÁ¬½Ó£¬²¢Æô¶¯ÉÏ´«¶ÓÁĞÏß³ÌµÄ·½·¨¡£
 	 */
 	public void setFtpClient(String server, int port, String userStr,
 			String passStr) {

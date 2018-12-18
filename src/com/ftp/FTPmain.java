@@ -6,15 +6,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FTPmain {
-    //åº”ç”¨ç¨‹åºå…¥å£
+    //Ó¦ÓÃ³ÌĞòÈë¿Ú
     public static void main(String args[]) {
-        //å¯¼è‡´ runnable çš„ run æ–¹æ³•åœ¨ EventQueue çš„æŒ‡æ´¾çº¿ç¨‹ä¸Šè¢«è°ƒç”¨ã€‚
+        //µ¼ÖÂ runnable µÄ run ·½·¨ÔÚ EventQueue µÄÖ¸ÅÉÏß³ÌÉÏ±»µ÷ÓÃ¡£
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    //ä½¿ç”¨ LookAndFeel å¯¹è±¡è®¾ç½®å½“å‰çš„é»˜è®¤å¤–è§‚ã€‚
-                    UIManager.setLookAndFeel(new NimbusLookAndFeel());//è®¾ç½®ä¸€ä¸ªéå¸¸æ¼‚äº®çš„å¤–è§‚
-                    //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                    //Ê¹ÓÃ LookAndFeel ¶ÔÏóÉèÖÃµ±Ç°µÄÄ¬ÈÏÍâ¹Û¡£
+                    UIManager.setLookAndFeel(new NimbusLookAndFeel());//ÉèÖÃÒ»¸ö·Ç³£Æ¯ÁÁµÄÍâ¹Û
                     FTPClientFrame client_Frame = new FTPClientFrame();
                     client_Frame.setVisible(true);
                 } catch (Exception ex) {

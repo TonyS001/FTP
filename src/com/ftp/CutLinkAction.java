@@ -5,49 +5,49 @@ import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 
-//æ–­å¼€æŒ‰é’®çš„åŠ¨ä½œå¤„ç†ç±»
+//¶Ï¿ª°´Å¥µÄ¶¯×÷´¦ÀíÀà
 class CutLinkAction extends AbstractAction {
-	private FTPClientFrame frame; // çˆ¶çª—ä½“çš„å¼•ç”¨å¯¹è±¡
+	private FTPClientFrame frame; // ¸¸´°ÌåµÄÒıÓÃ¶ÔÏó
 
 	/**
-	 * æ„é€ æ–¹æ³•
+	 * ¹¹Ôì·½·¨
 	 *
 	 * @param client_Frame
-	 *            çˆ¶çª—ä½“çš„å¼•ç”¨
+	 *            ¸¸´°ÌåµÄÒıÓÃ
 	 * @param string
-	 *            åŠ¨ä½œçš„åç§°ï¼Œå®ƒå°†æ˜¾ç¤ºåœ¨æŒ‰é’®æˆ–èœå•é¡¹ç»„ä»¶ä¸Š
+	 *            ¶¯×÷µÄÃû³Æ£¬Ëü½«ÏÔÊ¾ÔÚ°´Å¥»ò²Ëµ¥Ïî×é¼şÉÏ
 	 * @param icon
-	 *            åŠ¨ä½œçš„å›¾æ ‡ï¼Œå®ƒå°†æ˜¾ç¤ºåœ¨æŒ‰é’®æˆ–èœå•é¡¹ç»„ä»¶ä¸Š
+	 *            ¶¯×÷µÄÍ¼±ê£¬Ëü½«ÏÔÊ¾ÔÚ°´Å¥»ò²Ëµ¥Ïî×é¼şÉÏ
 	 */
 	public CutLinkAction(FTPClientFrame client_Frame, String string, Icon icon) {
-		super(string, icon); // è°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•
-		frame = client_Frame; // èµ‹å€¼çˆ¶çª—ä½“å¼•ç”¨å¯¹è±¡
-		setEnabled(false); // è®¾ç½®ä¸å¯ç”¨çŠ¶æ€
+		super(string, icon); // µ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨
+		frame = client_Frame; // ¸³Öµ¸¸´°ÌåÒıÓÃ¶ÔÏó
+		setEnabled(false); // ÉèÖÃ²»¿ÉÓÃ×´Ì¬
 	}
 
 	/**
-	 * å¤„ç†æ–­å¼€æŒ‰é’®çš„æŒ‰é’®åŠ¨ä½œäº‹ä»¶çš„æ–¹æ³•
+	 * ´¦Àí¶Ï¿ª°´Å¥µÄ°´Å¥¶¯×÷ÊÂ¼şµÄ·½·¨
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			frame.ftpPanel.stopDownThread(); // åœæ­¢ä¸‹è½½çº¿ç¨‹
-			frame.localPanel.stopUploadThread(); // åœæ­¢ä¸Šä¼ çº¿ç¨‹
-			frame.getFtpPanel().getQueue().clear(); // æ¸…ç©ºä»»åŠ¡é˜Ÿåˆ—
-			frame.getFtpPanel().clearTable(); // æ¸…é™¤FTPèµ„æºè¡¨æ ¼å†…å®¹
-			frame.getLocalPanel().getQueue().clear(); // æ¸…é™¤æœ¬åœ°é¢æ¿çš„é˜Ÿåˆ—
-			// å¦‚æœFTPè¿æ¥å¯¹è±¡å­˜åœ¨ï¼Œå¹¶ä¸”å·²ç»è¿æ¥FTPæœåŠ¡å™¨
+			frame.ftpPanel.stopDownThread(); // Í£Ö¹ÏÂÔØÏß³Ì
+			frame.localPanel.stopUploadThread(); // Í£Ö¹ÉÏ´«Ïß³Ì
+			frame.getFtpPanel().getQueue().clear(); // Çå¿ÕÈÎÎñ¶ÓÁĞ
+			frame.getFtpPanel().clearTable(); // Çå³ıFTP×ÊÔ´±í¸ñÄÚÈİ
+			frame.getLocalPanel().getQueue().clear(); // Çå³ı±¾µØÃæ°åµÄ¶ÓÁĞ
+			// Èç¹ûFTPÁ¬½Ó¶ÔÏó´æÔÚ£¬²¢ÇÒÒÑ¾­Á¬½ÓFTP·şÎñÆ÷
 			if (frame.ftpClient != null && frame.ftpClient.isLoggedIn()) {
 				frame.ftpClient.close();
-				frame.ftpClient.getLastReplyCode(); // è¯»å–è¿”å›ç¼–ç 
+				frame.ftpClient.getLastReplyCode(); // ¶ÁÈ¡·µ»Ø±àÂë
 				frame.ftpClient = null;
 			}
-			// è®¾ç½®ä¸Šä¼ æŒ‰é’®ä¸å¯ç”¨
+			// ÉèÖÃÉÏ´«°´Å¥²»¿ÉÓÃ
 			frame.localPanel.getActionMap().get("uploadAction").setEnabled(
 					false);
-			// è®¾ç½®ä¸‹è½½æŒ‰é’®ä¸å¯ç”¨
+			// ÉèÖÃÏÂÔØ°´Å¥²»¿ÉÓÃ
 			frame.ftpPanel.getActionMap().get("downAction").setEnabled(false);
-			setEnabled(false); // è®¾ç½®æœ¬æŒ‰é’®ï¼ˆæ–­å¼€ï¼‰ä¸å¯ç”¨
+			setEnabled(false); // ÉèÖÃ±¾°´Å¥£¨¶Ï¿ª£©²»¿ÉÓÃ
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

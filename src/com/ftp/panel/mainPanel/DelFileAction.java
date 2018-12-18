@@ -1,17 +1,13 @@
 package com.ftp.panel.mainPanel;
 
 import java.awt.event.ActionEvent;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
-
-import sun.net.TelnetInputStream;
 
 import com.ftp.panel.local.LocalPanel;
 import sun.net.ftp.FtpClient;
@@ -70,7 +66,6 @@ class DelFileAction extends AbstractAction {
 								//字符模式为10，二进制模式为13
 //								if (names[i]==10) {
 								if (names[i]==13) {
-									//获取字符串 -rwx------ 1 user group          57344 Apr 18 05:32 腾讯电商2013实习生招聘TST推荐模板.xls
 									//文件名在数据中开始做坐标为j,i-j为文件名的长度，文件名在数据中的结束下标为i-1
 									String fileMessage = new String(names,j,i-j);
 									if(fileMessage.length() == 0){
@@ -100,7 +95,7 @@ class DelFileAction extends AbstractAction {
 										// 递归删除文件或文件夹
 										delFile(ftpFile);
 									}
-//									j=i+1;//上一次位置为字符模式
+									//j=i+1;//上一次位置为字符模式
 									j=i+2;//上一次位置为二进制模式
 								}
 								i=i+1;

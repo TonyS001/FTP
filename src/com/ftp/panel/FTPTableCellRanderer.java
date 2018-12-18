@@ -9,25 +9,25 @@ import javax.swing.table.*;
 import com.ftp.utils.*;
 
 /**
- *  æ¸²æŸ“æœ¬åœ°èµ„æºå’ŒFTPèµ„æºè¡¨æ ¼ç»„ä»¶çš„æ¸²æŸ“å™¨
+ *  äÖÈ¾±¾µØ×ÊÔ´ºÍFTP×ÊÔ´±í¸ñ×é¼şµÄäÖÈ¾Æ÷
  */
 public class FTPTableCellRanderer extends DefaultTableCellRenderer {
     private final ImageIcon folderIcon = new ImageIcon(getClass().getResource(
-            "/com/ftp/figure/folderIcon.JPG")); // æ–‡ä»¶å¤¹å›¾æ ‡
+            "/com/ftp/figure/folderIcon.JPG")); // ÎÄ¼ş¼ĞÍ¼±ê
     private final ImageIcon fileIcon = new ImageIcon(getClass().getResource(
-            "/com/ftp/figure/fileIcon.JPG")); // æ–‡ä»¶å›¾æ ‡
-    private static FTPTableCellRanderer instance = null; // æ¸²æŸ“å™¨çš„å®ä¾‹å¯¹è±¡
+            "/com/ftp/figure/fileIcon.JPG")); // ÎÄ¼şÍ¼±ê
+    private static FTPTableCellRanderer instance = null; // äÖÈ¾Æ÷µÄÊµÀı¶ÔÏó
 
     /**
-     * è¢«å°é—­çš„æ„é€ æ–¹æ³•
+     * ±»·â±ÕµÄ¹¹Ôì·½·¨
      */
     private FTPTableCellRanderer() {
     }
 
     /**
-     * è·å–æ¸²æŸ“å™¨å®ä¾‹å¯¹è±¡çš„æ–¹æ³•
+     * »ñÈ¡äÖÈ¾Æ÷ÊµÀı¶ÔÏóµÄ·½·¨
      *
-     * @return æ¸²æŸ“å™¨çš„å®ä¾‹å¯¹è±¡
+     * @return äÖÈ¾Æ÷µÄÊµÀı¶ÔÏó
      */
     public static FTPTableCellRanderer getCellRanderer() {
         if (instance == null)
@@ -36,41 +36,41 @@ public class FTPTableCellRanderer extends DefaultTableCellRenderer {
     }
 
     /**
-     * é‡å†™è®¾ç½®è¡¨æ ¼æ•°æ®çš„æ–¹æ³•
+     * ÖØĞ´ÉèÖÃ±í¸ñÊı¾İµÄ·½·¨
      */
     @Override
     protected void setValue(Object value) {
         if (value instanceof FileInterface) {
             FileInterface file = (FileInterface) value;
-            // è·å–FileSystemViewç±»çš„å®ä¾‹å¯¹è±¡
+            // »ñÈ¡FileSystemViewÀàµÄÊµÀı¶ÔÏó
             FileSystemView view = FileSystemView.getFileSystemView();
             if (file.isDirectory()) {
                 setText(file.toString());
                 setIcon(folderIcon);
             } else {
-                if (file instanceof File) { // å¦‚æœæ•°æ®ä¸ºFileç±»
-                    Icon icon = view.getSystemIcon((File) file);// è·å–æ–‡ä»¶çš„å›¾æ ‡
-                    setIcon(icon); // è®¾ç½®è¡¨æ ¼å•å…ƒå›¾æ ‡
-                } else if (file instanceof FtpFile) { // å¦‚æœæ•°æ®ä¸ºFtpFileç±»
+                if (file instanceof File) { // Èç¹ûÊı¾İÎªFileÀà
+                    Icon icon = view.getSystemIcon((File) file);// »ñÈ¡ÎÄ¼şµÄÍ¼±ê
+                    setIcon(icon); // ÉèÖÃ±í¸ñµ¥ÔªÍ¼±ê
+                } else if (file instanceof FtpFile) { // Èç¹ûÊı¾İÎªFtpFileÀà
                     FtpFile ftpfile = (FtpFile) file;
                     try {
-                        // ä½¿ç”¨FtpFileçš„æ–‡ä»¶åç§°åˆ›å»ºä¸´æ—¶æ–‡ä»¶
+                        // Ê¹ÓÃFtpFileµÄÎÄ¼şÃû³Æ´´½¨ÁÙÊ±ÎÄ¼ş
                         File tempFile = File.createTempFile("tempfile_",
                                 ftpfile.getName());
-                        // è·å–ä¸´æ—¶æ–‡ä»¶çš„å›¾æ ‡
+                        // »ñÈ¡ÁÙÊ±ÎÄ¼şµÄÍ¼±ê
                         Icon icon = view.getSystemIcon(tempFile);
-                        tempFile.delete(); // åˆ é™¤ä¸´æ—¶æ–‡ä»¶
-                        setIcon(icon); // è®¾ç½®è¡¨æ ¼å•å…ƒå›¾æ ‡
+                        tempFile.delete(); // É¾³ıÁÙÊ±ÎÄ¼ş
+                        setIcon(icon); // ÉèÖÃ±í¸ñµ¥ÔªÍ¼±ê
                     } catch (IOException e) {
                         e.printStackTrace();
                         setIcon(fileIcon);
                     }
                 }
-                setText(file.toString()); // è®¾ç½®æ–‡æœ¬å†…å®¹
+                setText(file.toString()); // ÉèÖÃÎÄ±¾ÄÚÈİ
             }
-        } else { // å¦‚æœé€‰æ‹©çš„ä¸æ˜¯æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹
-            setIcon(folderIcon); // è®¾ç½®å¤‡ç”¨çš„æ–‡ä»¶å¤¹å›¾æ ‡
-            setText(value.toString()); // è®¾ç½®åç§°
+        } else { // Èç¹ûÑ¡ÔñµÄ²»ÊÇÎÄ¼ş»òÎÄ¼ş¼Ğ
+            setIcon(folderIcon); // ÉèÖÃ±¸ÓÃµÄÎÄ¼ş¼ĞÍ¼±ê
+            setText(value.toString()); // ÉèÖÃÃû³Æ
         }
     }
 }

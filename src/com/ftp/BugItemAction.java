@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URI;
 
-//ç‚¹å‡»  å¸®åŠ©(H)-->é”™è¯¯æŠ¥å‘Š(U)  è°ƒç”¨ç³»ç»Ÿçš„ç”µå­é‚®ä»¶ç¨‹åºå‘é€é‚®ä»¶
+//µã»÷  °ïÖú(H)-->´íÎó±¨¸æ(U)  µ÷ÓÃÏµÍ³µÄµç×ÓÓÊ¼ş³ÌĞò·¢ËÍÓÊ¼ş
 class BugItemAction implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {

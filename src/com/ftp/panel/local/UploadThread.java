@@ -45,6 +45,8 @@ class UploadThread extends Thread {
 	public UploadThread(LocalPanel localPanel, String server, int port,
 						String userStr, String passStr) {
 		try {
+			ftpClient=FtpClient.create();
+			ftpClient.enablePassiveMode(true);
 			SocketAddress addr = new InetSocketAddress(server,port);
 			ftpClient.connect(addr);
 			ftpClient.login(userStr, passStr.toCharArray());

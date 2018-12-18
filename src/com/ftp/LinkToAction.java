@@ -6,33 +6,33 @@ import javax.swing.Icon;
 
 import com.ftp.panel.manager.FtpLinkDialog;
 
-//è¿æ¥åˆ°æŒ‰é’®çš„åŠ¨ä½œç±»
+//Á¬½Óµ½°´Å¥µÄ¶¯×÷Àà
 class LinkToAction extends AbstractAction {
 	private final FTPClientFrame client_Frame;
 
 	/**
-	 * æ„é€ æ–¹æ³•
+	 * ¹¹Ôì·½·¨
 	 *
 	 * @param frame
-	 *            ä¸»çª—ä½“çš„å¼•ç”¨
+	 *            Ö÷´°ÌåµÄÒıÓÃ
 	 * @param string
-	 *            åŠ¨ä½œçš„åç§°
+	 *            ¶¯×÷µÄÃû³Æ
 	 * @param icon
-	 *            åŠ¨ä½œçš„å›¾æ ‡
+	 *            ¶¯×÷µÄÍ¼±ê
 	 */
 	public LinkToAction(FTPClientFrame frame, String string, Icon icon) {
-		super(string, icon); // è°ƒç”¨çˆ¶ç±»æ„é€ æ–¹æ³•
-		client_Frame = frame; // èµ‹å€¼ä¸»çª—ä½“çš„å¼•ç”¨
+		super(string, icon); // µ÷ÓÃ¸¸Àà¹¹Ôì·½·¨
+		client_Frame = frame; // ¸³ÖµÖ÷´°ÌåµÄÒıÓÃ
 	}
 
 	/**
-	 * å¤„ç†åŠ¨ä½œçš„äº‹ä»¶æ–¹æ³•
+	 * ´¦Àí¶¯×÷µÄÊÂ¼ş·½·¨
 	 *
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// åˆ›å»ºè¿æ¥åˆ°FTPç«™ç‚¹å¯¹è¯æ¡†
+		// ´´½¨Á¬½Óµ½FTPÕ¾µã¶Ô»°¿ò
 		FtpLinkDialog dialog = new FtpLinkDialog(this.client_Frame);
 	}
 }

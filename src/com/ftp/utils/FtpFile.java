@@ -1,33 +1,33 @@
 package com.ftp.utils;
 
-//FTPæ–‡ä»¶çš„JavaBeanç±»
+//FTPÎÄ¼şµÄJavaBeanÀà
 public class FtpFile implements FileInterface {
-	private String name = ""; // æ–‡ä»¶åç§°
-	private String path = ""; // è·¯å¾„
-	protected boolean directory; // æ˜¯å¦æ–‡ä»¶å¤¹
-	private boolean file; // æ˜¯å¦æ–‡ä»¶
-	private String lastDate; // æœ€åä¿®æ”¹æ—¥æœŸ
-	private String size; // æ–‡ä»¶å¤§å°
-	private long longSize; // æ–‡ä»¶å¤§å°çš„é•¿æ•´å‹ç±»å‹
-	private final int GB = (int) Math.pow(1024, 3); // GBå•ä½æ•°å€¼
-	private final int MB = (int) Math.pow(1024, 2); // MBå•ä½æ•°å€¼
-	private final int KB = 1024; // KBå•ä½æ•°å€¼
+	private String name = ""; // ÎÄ¼şÃû³Æ
+	private String path = ""; // Â·¾¶
+	protected boolean directory; // ÊÇ·ñÎÄ¼ş¼Ğ
+	private boolean file; // ÊÇ·ñÎÄ¼ş
+	private String lastDate; // ×îºóĞŞ¸ÄÈÕÆÚ
+	private String size; // ÎÄ¼ş´óĞ¡
+	private long longSize; // ÎÄ¼ş´óĞ¡µÄ³¤ÕûĞÍÀàĞÍ
+	private final int GB = (int) Math.pow(1024, 3); // GBµ¥Î»ÊıÖµ
+	private final int MB = (int) Math.pow(1024, 2); // MBµ¥Î»ÊıÖµ
+	private final int KB = 1024; // KBµ¥Î»ÊıÖµ
 
 	public FtpFile() {
 	}
 
 	/**
-	 * è‡ªå®šä¹‰çš„æ„é€ æ–¹æ³•
+	 * ×Ô¶¨ÒåµÄ¹¹Ôì·½·¨
 	 *
 	 * @param name
-	 *            æ–‡ä»¶å
+	 *            ÎÄ¼şÃû
 	 * @param path
-	 *            è·¯å¾„
+	 *            Â·¾¶
 	 * @param directory
-	 *            æ˜¯å¦æ–‡ä»¶å¤¹
+	 *            ÊÇ·ñÎÄ¼ş¼Ğ
 	 */
 	public FtpFile(String name, String path, boolean directory) {
-		this.name = name; // åˆå§‹åŒ–ç›¸å…³å±æ€§
+		this.name = name; // ³õÊ¼»¯Ïà¹ØÊôĞÔ
 		this.path = path;
 		this.directory = directory;
 	}
@@ -37,20 +37,20 @@ public class FtpFile implements FileInterface {
 	}
 
 	/**
-	 * è®¾ç½®æ–‡ä»¶å¤§å°çš„æ–¹æ³•
+	 * ÉèÖÃÎÄ¼ş´óĞ¡µÄ·½·¨
 	 *
 	 * @param nsize
-	 *            æ–‡ä»¶å¤§å°çš„å­—ç¬¦ä¸²è¡¨ç¤º
+	 *            ÎÄ¼ş´óĞ¡µÄ×Ö·û´®±íÊ¾
 	 */
 	public void setSize(String nsize) {
-		if (nsize.indexOf("DIR") != -1) { // å¦‚æœæ–‡ä»¶å¤§å°åŒ…å«DIRå­—ç¬¦ä¸²
+		if (nsize.indexOf("DIR") != -1) { // Èç¹ûÎÄ¼ş´óĞ¡°üº¬DIR×Ö·û´®
 			this.size = "<DIR>";
-			directory = true; // è®¾ç½®è¯¥ç±»æˆä¸ºä¸€ä¸ªæ–‡ä»¶å¤¹å¯¹è±¡
+			directory = true; // ÉèÖÃ¸ÃÀà³ÉÎªÒ»¸öÎÄ¼ş¼Ğ¶ÔÏó
 			file = false;
-		} else { // å¦åˆ™
-			file = true; // è®¾ç½®è¯¥ç±»æˆä¸ºä¸€ä¸ªæ–‡ä»¶å¯¹è±¡
+		} else { // ·ñÔò
+			file = true; // ÉèÖÃ¸ÃÀà³ÉÎªÒ»¸öÎÄ¼ş¶ÔÏó
 			directory = false;
-			this.size = nsize.trim(); // è®¡ç®—æ–‡ä»¶çš„å¤§å°å•ä½
+			this.size = nsize.trim(); // ¼ÆËãÎÄ¼şµÄ´óĞ¡µ¥Î»
 			longSize = Long.parseLong(size);
 			if (longSize > GB) {
 				size = longSize / GB + "G ";
@@ -81,9 +81,9 @@ public class FtpFile implements FileInterface {
 	}
 
 	/**
-	 * è·å¾—è¯¥æ–‡ä»¶çš„ç»å¯¹è·¯å¾„
+	 * »ñµÃ¸ÃÎÄ¼şµÄ¾ø¶ÔÂ·¾¶
 	 *
-	 * @return è·¯å¾„
+	 * @return Â·¾¶
 	 */
 	public String getAbsolutePath() {
 		if (path.lastIndexOf('/') == path.length() - 1)
@@ -109,7 +109,7 @@ public class FtpFile implements FileInterface {
 	}
 
 	/**
-	 * é‡å†™toStringæ–¹æ³•ï¼Œå®ƒå†³å®šäº†è¯¥ç±»åœ¨ç»„ä»¶ä¸­æ˜¾ç¤ºçš„å†…å®¹
+	 * ÖØĞ´toString·½·¨£¬Ëü¾ö¶¨ÁË¸ÃÀàÔÚ×é¼şÖĞÏÔÊ¾µÄÄÚÈİ
 	 *
 	 * @see java.lang.Object#toString()
 	 */
