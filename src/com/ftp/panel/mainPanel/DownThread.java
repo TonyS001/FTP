@@ -4,38 +4,34 @@ import java.io.*;
 
 import javax.swing.*;
 
-import sun.net.*;
-
 import com.ftp.panel.queue.*;
 import com.ftp.utils.*;
+import sun.net.ftp.FtpClient;
+import sun.net.ftp.FtpProtocolException;
 
 /**
  * FTP文件管理模块的FTP文件下载队列的线程
  */
 public class DownThread extends Thread {
 	private final FtpPanel ftpPanel; // FTP资源管理面板
-	private final FtpClient ftpClient; // FTP控制类
+	private FtpClient ftpClient = null; // FTP控制类
 	private boolean conRun = true; // 线程的控制变量
 	private String path; // FTP的路径信息
 	private Object[] queueValues; // 下载任务的数组
 
 	/**
 	 * 构造方法
-	 * 
+	 *
 	 * @param ftpPanel
 	 *            - FTP资源管理面板
 	 */
 	public DownThread(FtpPanel ftpPanel) {
 		this.ftpPanel = ftpPanel;
-		ftpClient = new FtpClient(); // 创建新的FTP控制对象
-		FtpClient ftp = ftpPanel.ftpClient;
+		ftpClient = ftpPanel.ftpClient;
 		try {
-			// 连接到FTP服务器
-			ftpClient.openServer(ftp.getServer(), ftp.getPort());
-			ftpClient.login(ftp.getName(), ftp.getPass()); // 登录服务器
-			ftpClient.binary(); // 使用二进制传输
+			ftpClient.setBinaryType(); // 使用二进制传输
 			ftpClient.noop();
-		} catch (IOException e) {
+		} catch (IOException | FtpProtocolException e) {
 			e.printStackTrace();
 		}
 		new Thread() { // 创建保持服务器通讯的线程
@@ -80,7 +76,7 @@ public class DownThread extends Thread {
 					"");
 			if (file.isFile()) {
 				// 获取服务器指定文件的输入流
-				TelnetInputStream ftpIs = ftpClient.get(file.getName());
+				InputStream ftpIs = ftpClient.getFileStream(file.getName());
 				if (ftpIs == null) {
 					JOptionPane.showMessageDialog(this.ftpPanel, file.getName()
 							+ "无法下载");
@@ -97,7 +93,7 @@ public class DownThread extends Thread {
 				String size = String.format("%.4f MB", fileLength);
 				//"文件名", "大小", "本地文件名","主机", "状态"
 				Object[] row = new Object[] { ftpFileStr, size,
-						downFile.getAbsolutePath(), ftpClient.getServer(),
+						downFile.getAbsolutePath(), ftpClient.getServerAddress(),
 						progressArg };
 				DownloadPanel downloadPanel = ftpPanel.frame.getDownloadPanel(); //下载队列面板
 				downloadPanel.addRow(row);  //添加列
@@ -116,12 +112,12 @@ public class DownThread extends Thread {
 				// 创建本地文件夹对象
 				File directory = new File(localFolder, ftpFileStr);
 				directory.mkdirs(); // 创建本地的文件夹
-				ftpClient.cd(file.getName()); // 改变FTP服务器的当前路径
+				ftpClient.changeDirectory(file.getName()); // 改变FTP服务器的当前路径
 				// 获取FTP服务器的文件列表信息
-				TelnetInputStream telnetInputStream=ftpClient.list();
+				InputStream inputStream=ftpClient.list(ftpClient.getWorkingDirectory());
 				byte[]names=new byte[2048];
 				int bufsize=0;
-				bufsize=telnetInputStream.read(names, 0, names.length);
+				bufsize=inputStream.read(names, 0, names.length);
 				int i=0,j=0;
 				while(i<bufsize){
 					//字符模式为10，二进制模式为13
@@ -135,7 +131,7 @@ public class DownThread extends Thread {
 							break;
 						}
 						//按照空格将fileMessage截为数组后获取相关信息
-						// 正则表达式  \s表示空格，｛1，｝表示1一个以上 
+						// 正则表达式  \s表示空格，｛1，｝表示1一个以上
 						if(!fileMessage.split("\\s+")[8].equals(".") && !fileMessage.split("\\s+")[8].equals("..")){
 							/**文件大小*/
 							String sizeOrDir="";
@@ -152,14 +148,14 @@ public class DownThread extends Thread {
 							ftpFile.setName(fileName);
 							ftpFile.setPath(file.getAbsolutePath());
 							// 递归执行子文件夹的下载
-							downFile(ftpFile, localFolder); 
+							downFile(ftpFile, localFolder);
 						}
 //						j=i+1;//上一次位置为字符模式
 						j=i+2;//上一次位置为二进制模式
 					}
 					i=i+1;
 				}
-				ftpClient.cdUp(); // 返回FTP上级路径
+				ftpClient.changeToParentDirectory(); // 返回FTP上级路径
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -179,7 +175,7 @@ public class DownThread extends Thread {
 				File localFolder = (File) queueValues[1];
 				if (file != null) {
 					path = file.getPath();
-					ftpClient.cd(path);
+					ftpClient.changeDirectory(path);
 					downFile(file, localFolder);
 					path = null;
 					ftpPanel.frame.getLocalPanel().refreshCurrentFolder();

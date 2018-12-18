@@ -1,7 +1,7 @@
 package com.ftp;
 
-import com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel;
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +14,7 @@ public class FTPmain {
                 try {
                     //使用 LookAndFeel 对象设置当前的默认外观。
                     UIManager.setLookAndFeel(new NimbusLookAndFeel());//设置一个非常漂亮的外观
-					//UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                    //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                     FTPClientFrame client_Frame = new FTPClientFrame();
                     client_Frame.setVisible(true);
                 } catch (Exception ex) {

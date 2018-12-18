@@ -8,6 +8,7 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 import com.ftp.utils.FtpFile;
+import sun.net.ftp.FtpProtocolException;
 
 /**
  * 重命名按钮的动作处理器
@@ -17,7 +18,7 @@ class RenameAction extends AbstractAction {
 
 	/**
 	 * 构造方法
-	 * 
+	 *
 	 * @param ftpPanel
 	 *            - FTP资源管理面板
 	 * @param name
@@ -48,12 +49,10 @@ class RenameAction extends AbstractAction {
 			return;
 		try {
 			// 向服务器发送重命名的指令
-			ftpPanel.ftpClient.sendServer("RNFR " + file.getName() + "\r\n");    //对旧路径重命名
-			ftpPanel.ftpClient.readServerResponse();
-			ftpPanel.ftpClient.sendServer("RNTO " + newName + "\r\n");			//对新路径重命名
-			ftpPanel.ftpClient.readServerResponse();
+			ftpPanel.ftpClient.rename(file.getName(), newName);
+			ftpPanel.ftpClient.getLastReplyCode();
 			ftpPanel.refreshCurrentFolder(); // 刷新当前文件夹
-		} catch (IOException e1) {
+		} catch (IOException | FtpProtocolException e1) {
 			e1.printStackTrace();
 		}
 	}

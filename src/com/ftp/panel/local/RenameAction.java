@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 /**
  * 重命名按钮的动作处理器
  */
-class RennameAction extends AbstractAction {
+class RenameAction extends AbstractAction {
 	private LocalPanel localPanel; // 本地资源管理面板的引用
 
 	/**
@@ -23,7 +23,7 @@ class RennameAction extends AbstractAction {
 	 * @param icon
 	 *            动作处理器的图标
 	 */
-	public RennameAction(LocalPanel localPanel, String name, Icon icon) {
+	public RenameAction(LocalPanel localPanel, String name, Icon icon) {
 		super(name, icon); // 调用父类的构造方法
 		this.localPanel = localPanel; // 赋值本地资源管理面板的引用
 	}

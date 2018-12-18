@@ -37,9 +37,9 @@ class CutLinkAction extends AbstractAction {
 			frame.getFtpPanel().clearTable(); // 清除FTP资源表格内容
 			frame.getLocalPanel().getQueue().clear(); // 清除本地面板的队列
 			// 如果FTP连接对象存在，并且已经连接FTP服务器
-			if (frame.ftpClient != null && frame.ftpClient.serverIsOpen()) {
-				frame.ftpClient.sendServer("quit\r\n"); // 发送断开连接的FTP协议的命令
-				frame.ftpClient.readServerResponse(); // 读取返回编码
+			if (frame.ftpClient != null && frame.ftpClient.isLoggedIn()) {
+				frame.ftpClient.close();
+				frame.ftpClient.getLastReplyCode(); // 读取返回编码
 				frame.ftpClient = null;
 			}
 			// 设置上传按钮不可用

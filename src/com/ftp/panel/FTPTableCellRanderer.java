@@ -13,9 +13,9 @@ import com.ftp.utils.*;
  */
 public class FTPTableCellRanderer extends DefaultTableCellRenderer {
     private final ImageIcon folderIcon = new ImageIcon(getClass().getResource(
-            "/com/oyp/ftp/res/folderIcon.JPG")); // 文件夹图标
+            "/com/ftp/figure/folderIcon.JPG")); // 文件夹图标
     private final ImageIcon fileIcon = new ImageIcon(getClass().getResource(
-            "/com/oyp/ftp/res/fileIcon.JPG")); // 文件图标
+            "/com/ftp/figure/fileIcon.JPG")); // 文件图标
     private static FTPTableCellRanderer instance = null; // 渲染器的实例对象
 
     /**

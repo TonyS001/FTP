@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.logging.Level;
@@ -19,11 +20,11 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.table.TableStringConverter;
 
-import sun.net.TelnetInputStream;
 import com.ftp.FTPClientFrame;
 import com.ftp.panel.FTPTableCellRanderer;
-import com.ftp.utils.FtpClient;
+import sun.net.ftp.FtpClient;
 import com.ftp.utils.FtpFile;
+import sun.net.ftp.FtpProtocolException;
 
 public class FtpPanel extends javax.swing.JPanel{
     FtpClient ftpClient;
@@ -39,10 +40,6 @@ public class FtpPanel extends javax.swing.JPanel{
     FTPClientFrame frame = null;
     Queue<Object[]> queue = new LinkedList<Object[]>();
     private DownThread thread;
-
-    public FtpPanel() {
-        initComponents();
-    }
 
     public FtpPanel(FTPClientFrame client_Frame) {
         frame = client_Frame;
@@ -168,9 +165,9 @@ public class FtpPanel extends javax.swing.JPanel{
             if (evt.getClickCount() >= 2) { //双击鼠标
                 if (selFile.isDirectory()) {
                     try {
-                        ftpClient.cd(selFile.getAbsolutePath());
-                        listFtpFiles(ftpClient.list());
-                    } catch (IOException ex) {
+                        ftpClient.changeDirectory(selFile.getAbsolutePath());
+                        listFtpFiles(ftpClient.list(ftpClient.getWorkingDirectory()));
+                    } catch (IOException | FtpProtocolException ex) {
                         ex.printStackTrace();
                     }
                 }
@@ -183,7 +180,7 @@ public class FtpPanel extends javax.swing.JPanel{
      * @param list
      *            读取FTP服务器资源列表的输入流
      */
-    public synchronized void listFtpFiles(final TelnetInputStream list) {
+    public synchronized void listFtpFiles(final InputStream list) {
         // 获取表格的数据模型
         final DefaultTableModel model = (DefaultTableModel) ftpDiskTable
                 .getModel();
@@ -332,10 +329,10 @@ public class FtpPanel extends javax.swing.JPanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     final FtpClient ftpClient = FtpPanel.this.ftpClient;
-                    if (ftpClient != null && ftpClient.serverIsOpen()) {
+                    if (ftpClient != null && ftpClient.isConnected()) {
                         ftpClient.noop();
                     }
-                } catch (IOException e1) {
+                } catch (IOException | FtpProtocolException e1) {
                     e1.printStackTrace();
                 }
             }
@@ -350,9 +347,9 @@ public class FtpPanel extends javax.swing.JPanel{
     public void refreshCurrentFolder() {
         try {
             // 获取服务器文件列表
-            TelnetInputStream list = ftpClient.list();
+            InputStream list = ftpClient.list(ftpClient.getWorkingDirectory());
             listFtpFiles(list); // 调用解析方法
-        } catch (IOException e) {
+        } catch (IOException | FtpProtocolException e) {
             e.printStackTrace();
         }
     }
@@ -380,8 +377,8 @@ public class FtpPanel extends javax.swing.JPanel{
     public String getPwd() {
         String pwd = null;
         try {
-            pwd = ftpClient.pwd();
-        } catch (IOException e) {
+            pwd = ftpClient.getWorkingDirectory();
+        } catch (IOException | FtpProtocolException e) {
             e.printStackTrace();
         }
         return pwd;

@@ -6,7 +6,7 @@
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/DelFileAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalTableModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RefreshAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RennameAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RenameAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/CreateFolderAction.java" charset="GBK" />

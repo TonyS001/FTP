@@ -8,6 +8,8 @@ import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,7 +24,6 @@ import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
 import com.ftp.panel.mainPanel.FtpPanel;
@@ -31,9 +32,8 @@ import com.ftp.panel.manager.FtpSiteDialog;
 import com.ftp.panel.queue.DownloadPanel;
 import com.ftp.panel.queue.QueuePanel;
 import com.ftp.panel.queue.UploadPanel;
-import com.ftp.utils.FtpClient;
+import sun.net.ftp.FtpClient;
 import com.ftp.utils.SiteInfoBean;
-import com.sun.java.swing.plaf.nimbus.*;
 
 public class FTPClientFrame extends javax.swing.JFrame{
     FtpClient ftpClient;
@@ -52,7 +52,7 @@ public class FTPClientFrame extends javax.swing.JFrame{
     private final LinkToAction LINK_TO_ACTION; // 连接到 按钮的动作处理器
     private final CutLinkAction CUT_LINK_ACTION; // 断开 按钮的动作处理器
     private SystemTray systemTray;
-    private final ImageIcon icon = new ImageIcon(getClass().getResource("/com/oyp/ftp/res/trayIcon.png"));
+    private final ImageIcon icon = new ImageIcon(getClass().getResource("/com/ftp/figure/trayIcon.png"));
 
     public FTPClientFrame() {
         LINK_TO_ACTION = new LinkToAction(this, "连接到", null);
@@ -445,11 +445,12 @@ public class FTPClientFrame extends javax.swing.JFrame{
             passStr = passStr == null ? "" : passStr.trim();
 
             cutLinkButton.doClick();
-            ftpClient = new FtpClient();
-            ftpClient.openServer(server.trim(), port); // 连接服务器
-            ftpClient.login(userStr, passStr); // 登录服务器
-            ftpClient.binary(); // 使用二进制传输模式
-            if (ftpClient.serverIsOpen()) { // 如果连接成功
+            ftpClient = null;
+            SocketAddress addr = new InetSocketAddress(server.trim(),port);
+            ftpClient.connect(addr); // 连接服务器
+            ftpClient.login(userStr, passStr.toCharArray()); // 登录服务器
+            ftpClient.setBinaryType(); // 使用二进制传输模式
+            if (ftpClient.isLoggedIn()) { // 如果连接成功
                 CUT_LINK_ACTION.setEnabled(true); // 设置断开按钮可用
             } else {
                 CUT_LINK_ACTION.setEnabled(false); // 设置断开按钮不可用

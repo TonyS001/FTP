@@ -5,13 +5,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.util.Queue;
 
 import com.ftp.panel.mainPanel.FtpPanel;
 import com.ftp.panel.queue.UploadPanel;
-import com.ftp.utils.FtpClient;
 import com.ftp.utils.FtpFile;
 import com.ftp.utils.ProgressArg;
+
+import sun.net.ftp.FtpClient;
+import sun.net.ftp.FtpProtocolException;
 
 /**
  * FTP文件管理模块的本地文件上传队列的线程
@@ -26,7 +30,7 @@ class UploadThread extends Thread {
 
 	/**
 	 * 创建上传队列线程的构造方法
-	 * 
+	 *
 	 * @param localPanel
 	 *            - 本地资源管理面板
 	 * @param server
@@ -39,13 +43,14 @@ class UploadThread extends Thread {
 	 *            - 登录FTP服务器的密码
 	 */
 	public UploadThread(LocalPanel localPanel, String server, int port,
-			String userStr, String passStr) {
+						String userStr, String passStr) {
 		try {
-			ftpClient = new FtpClient(server, port);
-			ftpClient.login(userStr, passStr);
-			ftpClient.binary();
-			path = ftpClient.pwd();
-		} catch (IOException e) {
+			SocketAddress addr = new InetSocketAddress(server,port);
+			ftpClient.connect(addr);
+			ftpClient.login(userStr, passStr.toCharArray());
+			ftpClient.setBinaryType();
+			path = ftpClient.getWorkingDirectory();
+		} catch (IOException | FtpProtocolException e) {
 			e.printStackTrace();
 		}
 		this.localPanel = localPanel;
@@ -67,12 +72,12 @@ class UploadThread extends Thread {
 	public void stopThread() { // 停止线程的方法
 		conRun = false;
 	}
-	
+
 	/**
 	 * 上传线程的递归方法，上传文件夹的所有子文件夹和内容
 	 * @param file
 	 *            - FTP文件对象
-	 * @param localFolder
+	 * @param ftpFile
 	 *            - 本地文件夹对象
 	 */
 	private void copyFile(File file, FtpFile ftpFile) { // 递归遍历文件夹的方法
@@ -106,9 +111,9 @@ class UploadThread extends Thread {
 						(int) (file.length() / 1024), 0, 0);//进度参数
 				String size = String.format("%.4f MB", fileLength);
 				Object[] row = new Object[] { file.getAbsoluteFile(), size,
-						remoteFile, ftpClient.getServer(), progressArg };
+						remoteFile, ftpClient.getServerAddress().toString(), progressArg };
 				uploadPanel.addRow(row); //添加列
-				OutputStream put = ftpClient.put(remoteFile); // 获取服务器文件的输出流
+				OutputStream put = ftpClient.putFileStream(remoteFile); // 获取服务器文件的输出流
 				FileInputStream fis = null; // 本地文件的输入流
 				try {
 					fis = new FileInputStream(file); // 初始化文件的输入流
@@ -131,28 +136,28 @@ class UploadThread extends Thread {
 				ftpFile.setName(path.replace("\\", "/"));
 //				System.out.println("Dirpath："+path);
 				/**将目录切换到当前FTP服务器的当前目录*/
-				ftpClient.cd(this.localPanel.frame.getFtpPanel().getPwd());     //  /media目录
+				ftpClient.changeDirectory(this.localPanel.frame.getFtpPanel().getPwd());     //  /media目录
 				/**
 				 * 如果有创建文件夹的权限，则在当前FTP服务器的当前目录下创建文件夹
 				 * 必须要有创建文件夹的权限，否则会报错
 				 * 		path：audio
-						ftpFile.getAbsolutePath()：/media/audio
-						remoteFile:/media/audio/梁静茹-会呼吸的痛Live.mp3
+				 ftpFile.getAbsolutePath()：/media/audio
+				 remoteFile:/media/audio/梁静茹-会呼吸的痛Live.mp3
 				 */
-				ftpClient.sendServer("MKD " + path + "\r\n");   //创建  /media/audio 目录
-				ftpClient.readServerResponse();
-				
+				ftpClient.makeDirectory(path);   //创建  /media/audio 目录
+				ftpClient.getLastReplyCode();
+
 				/***********************************************************
 				 * 如果没有有创建文件夹的权限，则创建文件夹，因此FTP服务器的当前路径下不存在
 				 * 那么将文件上传到此FTP服务器的当前路径下
-				 * 
+				 *
 				 * 		如要上传C://audio目录（目录中有 梁静茹-会呼吸的痛Live.mp3 和 林宥嘉-心酸.mp3 两个文件）
 				 * 		到 FTP服务器上的  /media/ 目录下
 				 * 		因为FTP服务器上没有 /media/audio 目录，并且FTP服务器当前的目录为 /media
 				 * 		所以将 C://audio目录下的文件上传到了 /media目录下
 				 * 		ftpFile.getAbsolutePath()：/media/audio
-						remoteFile:/media/梁静茹-会呼吸的痛Live.mp3
-						remoteFile:/media/林宥嘉-心酸.mp3
+				 remoteFile:/media/梁静茹-会呼吸的痛Live.mp3
+				 remoteFile:/media/林宥嘉-心酸.mp3
 				 */
 				//创建一个文件夹对象，检查该文件是否存在
 				File fileRemote=new File(this.localPanel.frame.getFtpPanel().getPwd()+path);  //path：audio
@@ -161,7 +166,7 @@ class UploadThread extends Thread {
 					path=this.localPanel.frame.getFtpPanel().getPwd();
 				}
 				/***********************************************************/
-				
+
 				File[] listFiles = file.listFiles();
 				for (File subFile : listFiles) {
 					Thread.sleep(0, 50);

@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
 
 import javax.swing.BoxLayout;
@@ -23,7 +22,7 @@ import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 import com.ftp.FTPClientFrame;
-import com.ftp.utils.FtpClient;
+import sun.net.ftp.FtpClient;
 import com.ftp.utils.FtpFile;
 
 /**
@@ -42,15 +41,8 @@ public class QueuePanel extends JPanel implements ActionListener {
 	private boolean stop = false; // 队列的控制变量
 
 	/**
-	 * 默认的构造方法
-	 */
-	public QueuePanel() {
-		initComponent();
-	}
-
-	/**
 	 * 自定义的构造方法
-	 * 
+	 *
 	 * @param frame
 	 *            主窗体
 	 */
@@ -173,7 +165,7 @@ public class QueuePanel extends JPanel implements ActionListener {
 
 	/**
 	 * 队列任务的上移和下移动作处理方法
-	 * 
+	 *
 	 * @param command
 	 *            上移或下移命令
 	 */
@@ -230,7 +222,7 @@ public class QueuePanel extends JPanel implements ActionListener {
 			for (int i = 0; i < size; i++) { // 遍历下载队列
 				Object[] que = ftpQueue.get(i);
 				FtpFile file = (FtpFile) que[0]; // 获取每个下载任务的FTP文件对象
-				if (file.getAbsolutePath().equals(value)) {// 
+				if (file.getAbsolutePath().equals(value)) {//
 					ListSelectionModel selModel = queueTable
 							.getSelectionModel(); // 获取任务队列表格的选择模型
 					// 设置模型使用单选模式
@@ -281,7 +273,7 @@ public class QueuePanel extends JPanel implements ActionListener {
 			File localFile = (File) queueValue[0];
 			// 把上传队列的任务添加到表格组件的数据模型中
 			model.addRow(new Object[] { localFile.getAbsoluteFile(), "上传",
-					ftpClient.getServer(), i == 0 ? "正在上传" : "等待上传" });
+					ftpClient.getServerAddress(), i == 0 ? "正在上传" : "等待上传" });
 		}
 		// 获取下载队列的任务
 		Object[] ftpQueueArray = ftpQueue.toArray();
@@ -293,7 +285,7 @@ public class QueuePanel extends JPanel implements ActionListener {
 			FtpFile ftpFile = (FtpFile) queueValue[0];
 			// 把下载队列的任务添加到表格组件的数据模型中
 			model.addRow(new Object[] { ftpFile.getAbsolutePath(), "下载",
-					ftpClient.getServer(), i == 0 ? "正在下载" : "等待下载" });
+					ftpClient.getServerAddress(), i == 0 ? "正在下载" : "等待下载" });
 		}
 		queueTable.setModel(model); // 设置表格使用本方法的表格数据模型
 	}

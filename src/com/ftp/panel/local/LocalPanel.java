@@ -44,10 +44,6 @@ public class LocalPanel extends javax.swing.JPanel {
 	private TableRowSorter<TableModel> sorter;
 	FTPClientFrame frame = null;
 
-	public LocalPanel() {
-		initComponents();
-	}
-
 	public LocalPanel(FTPClientFrame client_Frame) {
 		frame = client_Frame;
 		if (Desktop.isDesktopSupported()) {
@@ -62,7 +58,7 @@ public class LocalPanel extends javax.swing.JPanel {
 	private void initComponents() {
 		ActionMap actionMap = getActionMap();
 		actionMap.put("delAction", new DelFileAction(this, "删除", null));
-		actionMap.put("renameAction", new RennameAction(this, "重命名", null));
+		actionMap.put("renameAction", new RenameAction(this, "重命名", null));
 		actionMap.put("createFolderAction", new CreateFolderAction(this, "新建文件夹", null));
 		actionMap.put("uploadAction", new UploadAction(this, "上传", null));
 		actionMap.put("refreshAction", new RefreshAction(this, "刷新", null));

@@ -1,5 +1,7 @@
 package com.ftp.panel.mainPanel;
 
+import sun.net.ftp.FtpProtocolException;
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -15,7 +17,7 @@ class CreateFolderAction extends AbstractAction {
 
 	/**
 	 * 构造方法
-	 * 
+	 *
 	 * @param ftpPanel
 	 *            - FTP资源管理面板
 	 * @param name
@@ -40,10 +42,10 @@ class CreateFolderAction extends AbstractAction {
 		int read = -1;
 		try {
 			// 发送创建文件夹的命令
-			ftpPanel.ftpClient.sendServer("MKD " + folderName + "\r\n");
+			ftpPanel.ftpClient.makeDirectory(folderName);
 			// 读取FTP服务器的命令返回码
-			read = ftpPanel.ftpClient.readServerResponse();
-		} catch (IOException e1) {
+			read = ftpPanel.ftpClient.getLastReplyCode().getValue();
+		} catch (IOException | FtpProtocolException e1) {
 			e1.printStackTrace();
 		}
 		if (read == 257) {// 如果返回码等于257（路径名建立完成）

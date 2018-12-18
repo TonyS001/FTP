@@ -3,6 +3,7 @@ package com.ftp.panel.mainPanel;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,8 +14,9 @@ import javax.swing.JOptionPane;
 import sun.net.TelnetInputStream;
 
 import com.ftp.panel.local.LocalPanel;
-import com.ftp.utils.FtpClient;
+import sun.net.ftp.FtpClient;
 import com.ftp.utils.FtpFile;
+import sun.net.ftp.FtpProtocolException;
 
 /**
  * FTP面板的删除按钮的动作处理器
@@ -24,7 +26,7 @@ class DelFileAction extends AbstractAction {
 
 	/**
 	 * 删除动作处理器的构造方法
-	 * 
+	 *
 	 * @param ftpPanel
 	 *            - FTP资源管理面板
 	 * @param name
@@ -45,7 +47,7 @@ class DelFileAction extends AbstractAction {
 		int confirmDialog = JOptionPane.showConfirmDialog(ftpPanel, "确定要删除吗？");
 		if (confirmDialog == JOptionPane.YES_OPTION) {
 			Runnable runnable = new Runnable() {
-				
+
 				/**
 				 * 删除服务器文件的方法
 				 * @param file - 文件名称
@@ -54,16 +56,15 @@ class DelFileAction extends AbstractAction {
 					FtpClient ftpClient = ftpPanel.ftpClient; // 获取ftpClient实例
 					try {
 						if (file.isFile()) { // 如果删除的是文件
-							ftpClient.sendServer("DELE " + file.getName()
-									+ "\r\n"); // 发送删除文件的命令
-							ftpClient.readServerResponse(); // 接收返回编码
+							ftpClient.deleteFile(file.getName()); // 发送删除文件的命令
+							ftpClient.getLastReplyCode(); // 接收返回编码
 						} else if (file.isDirectory()) { // 如果删除的是文件夹
-							ftpClient.cd(file.getName()); // 进入到该文件夹
-							
-							TelnetInputStream telnetInputStream=ftpClient.list();
+							ftpClient.changeDirectory(file.getName()); // 进入到该文件夹
+
+							InputStream inputStream=ftpClient.list(ftpClient.getWorkingDirectory());
 							byte[]names=new byte[2048];
 							int bufsize=0;
-							bufsize=telnetInputStream.read(names, 0, names.length);
+							bufsize=inputStream.read(names, 0, names.length);
 							int i=0,j=0;
 							while(i<bufsize){
 								//字符模式为10，二进制模式为13
@@ -77,7 +78,7 @@ class DelFileAction extends AbstractAction {
 										break;
 									}
 									//按照空格将fileMessage截为数组后获取相关信息
-									// 正则表达式  \s表示空格，｛1，｝表示1一个以上 
+									// 正则表达式  \s表示空格，｛1，｝表示1一个以上
 									if(!fileMessage.split("\\s+")[8].equals(".") && !fileMessage.split("\\s+")[8].equals("..")){
 										/**文件大小*/
 										String sizeOrDir="";
@@ -97,17 +98,16 @@ class DelFileAction extends AbstractAction {
 										ftpFile.setName(fileName);
 										ftpFile.setPath(file.getAbsolutePath());
 										// 递归删除文件或文件夹
-										delFile(ftpFile); 
+										delFile(ftpFile);
 									}
 //									j=i+1;//上一次位置为字符模式
 									j=i+2;//上一次位置为二进制模式
 								}
 								i=i+1;
 							}
-							ftpClient.cdUp(); // 返回上层文件夹
-							ftpClient.sendServer("RMD " + file.getName()
-									+ "\r\n"); // 发送删除文件夹指令
-							ftpClient.readServerResponse(); // 接收返回码
+							ftpClient.changeToParentDirectory(); // 返回上层文件夹
+							ftpClient.removeDirectory(file.getName()); // 发送删除文件夹指令
+							ftpClient.getLastReplyCode(); // 接收返回码
 						}
 					} catch (Exception ex) {
 						Logger.getLogger(LocalPanel.class.getName()).log(
@@ -128,11 +128,10 @@ class DelFileAction extends AbstractAction {
 							delFile(file); // 调用删除文件的递归方法
 							try {
 								// 向服务器发删除文件夹的方法
-								ftpPanel.ftpClient.sendServer("RMD "
-										+ file.getName() + "\r\n");
+								ftpPanel.ftpClient.removeDirectory(file.getName());
 								// 读取FTP服务器的返回码
-								ftpPanel.ftpClient.readServerResponse();
-							} catch (IOException e) {
+								ftpPanel.ftpClient.getLastReplyCode();
+							} catch (IOException | FtpProtocolException e) {
 								e.printStackTrace();
 							}
 						}
