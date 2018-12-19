@@ -3,10 +3,8 @@ package com.ftp.panel.local;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 import java.util.Queue;
 
 import com.ftp.panel.mainPanel.FtpPanel;
@@ -15,7 +13,6 @@ import com.ftp.utils.FtpFile;
 import com.ftp.utils.ProgressArg;
 
 import sun.net.ftp.FtpClient;
-import sun.net.ftp.FtpProtocolException;
 
 /**
  * FTP文件管理模块的本地文件上传队列的线程
@@ -33,42 +30,10 @@ class UploadThread extends Thread {
 	 *
 	 * @param localPanel
 	 *            - 本地资源管理面板
-	 * @param server
-	 *            - FTP服务器地址
-	 * @param port
-	 *            - FTP服务器端口号
-	 * @param userStr
-	 *            - 登录FTP服务器的用户名
-	 * @param passStr
-	 *            - 登录FTP服务器的密码
 	 */
-	public UploadThread(LocalPanel localPanel, String server, int port,
-						String userStr, String passStr) {
-		try {
-			ftpClient=FtpClient.create();
-			ftpClient.enablePassiveMode(true);
-			SocketAddress addr = new InetSocketAddress(server,port);
-			ftpClient.connect(addr);
-			ftpClient.login(userStr, passStr.toCharArray());
-			ftpClient.setBinaryType();
-			path = ftpClient.getWorkingDirectory();
-		} catch (IOException | FtpProtocolException e) {
-			e.printStackTrace();
-		}
+	public UploadThread(LocalPanel localPanel, FtpClient ftpClient) {
 		this.localPanel = localPanel;
-		new Thread() { // 创建保持服务器通讯的线程
-			public void run() {
-				while (conRun) {
-					try {
-						Thread.sleep(30000);
-						// 定时向服务器发送消息，保持连接
-						UploadThread.this.ftpClient.noop();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}.start();
+		this.ftpClient = ftpClient;
 	}
 
 	public void stopThread() { // 停止线程的方法
@@ -98,22 +63,16 @@ class UploadThread extends Thread {
 				|| !queueValues[0].equals(args[0]))
 			return;
 		try {
-//			System.out.println("selPath："+selPath);
 			path = file.getParentFile().getPath().replace(selPath, "");
-//			System.out.println("path："+path);
 			ftpFile.setName(path.replace("\\", "/"));
 			path = ftpFile.getAbsolutePath();
-//			System.out.println("ftpFile.getAbsolutePath()："+path);
 			if (file.isFile()) {
 				UploadPanel uploadPanel = localPanel.frame.getUploadPanel();//上传面板
 				String remoteFile = path + "/" + file.getName(); // 远程FTP的文件名绝对路径
-//				System.out.println("remoteFile:" + remoteFile);
 				double fileLength = file.length() / Math.pow(1024, 2);
-				ProgressArg progressArg = new ProgressArg(
-						(int) (file.length() / 1024), 0, 0);//进度参数
+				ProgressArg progressArg = new ProgressArg((int) (file.length() / 1024), 0, 0);//进度参数
 				String size = String.format("%.4f MB", fileLength);
-				Object[] row = new Object[] { file.getAbsoluteFile(), size,
-						remoteFile, ftpClient.getServerAddress().toString(), progressArg };
+				Object[] row = new Object[] { file.getAbsoluteFile(), size, remoteFile, ftpClient.getServerAddress().toString(), progressArg };
 				uploadPanel.addRow(row); //添加列
 				OutputStream put = ftpClient.putFileStream(remoteFile); // 获取服务器文件的输出流
 				FileInputStream fis = null; // 本地文件的输入流
@@ -136,7 +95,6 @@ class UploadThread extends Thread {
 			} else if (file.isDirectory()) {
 				path = file.getPath().replace(selPath, "");
 				ftpFile.setName(path.replace("\\", "/"));
-//				System.out.println("Dirpath："+path);
 				/**将目录切换到当前FTP服务器的当前目录*/
 				ftpClient.changeDirectory(this.localPanel.frame.getFtpPanel().getPwd());     //  /media目录
 				/**

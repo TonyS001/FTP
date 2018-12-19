@@ -1,5 +1,6 @@
 package com.ftp;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -110,7 +111,7 @@ public class FTPClientFrame extends javax.swing.JFrame{
                 formWindowOpened(evt);
             }
             public void windowIconified(final WindowEvent e) {
-                setVisible(false);
+                setExtendedState(Frame.ICONIFIED);
             }
         });
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -255,7 +256,6 @@ public class FTPClientFrame extends javax.swing.JFrame{
         ftpManageMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("action");
                 FtpSiteDialog dialog = new FtpSiteDialog(FTPClientFrame.this);
                 dialog.setVisible(true);
             }
@@ -420,7 +420,7 @@ public class FTPClientFrame extends javax.swing.JFrame{
             }
 
             // 设置本地资源管理面板的FTP连接信息
-            localPanel.setFtpClient(server, port, userStr, passStr);
+            localPanel.setFtpClient(ftpClient);
 
             // 设置上传按钮可用
             localPanel.getActionMap().get("uploadAction").setEnabled(true);

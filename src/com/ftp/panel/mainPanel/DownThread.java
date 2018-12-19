@@ -7,7 +7,6 @@ import javax.swing.*;
 import com.ftp.panel.queue.*;
 import com.ftp.utils.*;
 import sun.net.ftp.FtpClient;
-import sun.net.ftp.FtpProtocolException;
 
 /**
  * FTP文件管理模块的FTP文件下载队列的线程
@@ -28,24 +27,6 @@ public class DownThread extends Thread {
 	public DownThread(FtpPanel ftpPanel) {
 		this.ftpPanel = ftpPanel;
 		ftpClient = ftpPanel.ftpClient;
-		try {
-			ftpClient.setBinaryType(); // 使用二进制传输
-			ftpClient.noop();
-		} catch (IOException | FtpProtocolException e) {
-			e.printStackTrace();
-		}
-		new Thread() { // 创建保持服务器通讯的线程
-			public void run() {
-				while (conRun) {
-					try {
-						Thread.sleep(30000);
-						ftpClient.noop(); // 定时向服务器发送消息，保持连接
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}.start();
 	}
 
 	public void stopThread() {// 停止线程的方法
@@ -114,14 +95,17 @@ public class DownThread extends Thread {
 				directory.mkdirs(); // 创建本地的文件夹
 				ftpClient.changeDirectory(file.getName()); // 改变FTP服务器的当前路径
 				// 获取FTP服务器的文件列表信息
-				InputStream inputStream=ftpClient.list(ftpClient.getWorkingDirectory());
+				InputStream inputStream=ftpClient.list(null);
+				ByteArrayOutputStream temp = clone(inputStream);
+				inputStream.close();
+				ftpClient.completePending();
+				inputStream = new ByteArrayInputStream(temp.toByteArray());
 				byte[]names=new byte[2048];
 				int bufsize=0;
 				bufsize=inputStream.read(names, 0, names.length);
 				int i=0,j=0;
 				while(i<bufsize){
 					//字符模式为10，二进制模式为13
-//					if (names[i]==10) {
 					if (names[i]==13) {
 						//文件名在数据中开始做坐标为j,i-j为文件名的长度，文件名在数据中的结束下标为i-1
 						String fileMessage = new String(names,j,i-j);
@@ -165,7 +149,6 @@ public class DownThread extends Thread {
 		while (conRun) {
 			try {
 				Thread.sleep(1000);
-				ftpClient.noop();
 				queueValues = ftpPanel.queue.peek();
 				if (queueValues == null) {
 					continue;
@@ -188,6 +171,22 @@ public class DownThread extends Thread {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	private static ByteArrayOutputStream clone(InputStream input){
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			byte[] buffer = new byte[1024];
+			int len;
+			while ((len = input.read(buffer)) > -1 ) {
+				baos.write(buffer, 0, len);
+			}
+			baos.flush();
+			return baos;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

@@ -3,20 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="47683dae-4716-4890-a60f-13e80e3fe156" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/FTPClientFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/local/UploadThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/local/UploadThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FTPclient/com/ftp/panel/mainPanel/FtpPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/siteInfo.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/siteInfo.data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,25 +19,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/CreateFolderAction.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="263">
+              <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/DelFileAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4535#4536#0" expanded="true" />
+                <element signature="e#4600#4601#0" expanded="true" />
+                <element signature="e#4608#4792#0" expanded="true" />
+                <element signature="e#4791#4792#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,10 +38,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1025">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="52">
+              <caret line="50" column="43" lean-forward="true" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1297">
+              <caret line="195" column="100" selection-start-line="195" selection-start-column="100" selection-end-line="195" selection-end-column="100" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4475#4651#0" expanded="true" />
+                <element signature="e#4650#4651#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <folding>
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#399#400#0" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+                <element signature="e#545#546#0" expanded="true" />
+                <element signature="e#579#580#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,72 +93,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/RefreshAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/RenameAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="188" column="53" selection-start-line="188" selection-start-column="53" selection-end-line="188" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="138" column="30" lean-forward="true" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4571#4755#0" expanded="true" />
-                <element signature="e#4754#4755#0" expanded="true" />
-                <element signature="e#4822#4984#0" expanded="true" />
-                <element signature="e#4983#4984#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -152,6 +101,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>noop</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -185,18 +139,18 @@
         <option value="$PROJECT_DIR$/src/com/ftp/panel/local/UploadAction.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/utils/FtpClient.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/FTPTableCellRanderer.java" />
-        <option value="$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/RenameAction.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/manager/FtpSiteDialog.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/queue/QueuePanel.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/CutLinkAction.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/FTPmain.java" />
-        <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DelFileAction.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/CreateFolderAction.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/QueueTableCellRanderer.java" />
-        <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java" />
+        <option value="$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" />
         <option value="$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java" />
       </list>
     </option>
@@ -208,9 +162,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="670" />
-    <option name="y" value="124" />
-    <option name="width" value="1448" />
+    <option name="x" value="669" />
+    <option name="y" value="123" />
+    <option name="width" value="1449" />
     <option name="height" value="855" />
   </component>
   <component name="ProjectView">
@@ -218,6 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,18 +208,32 @@
             </path>
             <path>
               <item name="FTPclient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FTPclient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ftp" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="mainPanel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FTPclient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FTPclient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ftp" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FTPclient" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545151729257" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545226319902" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../FTPclient" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -325,7 +294,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21584478" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24090542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -334,13 +303,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3090586" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18650089" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4987874" weight="0.25044405" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4995958" weight="0.3285968" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4995958" weight="0.3285968" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5004042" side_tool="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5012126" side_tool="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4995958" weight="0.3285968" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4995958" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -358,8 +327,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/main.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/main/local.java" />
     <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/ftpPanel.java" />
     <entry file="file://$PROJECT_DIR$/src/com/ftp/figure/about.jpg" />
     <entry file="file://$PROJECT_DIR$/src/com/ftp/AboutItemAction.java" />
@@ -390,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/java JDK/JDK 8/jre/lib/rt.jar!/sun/net/ftp/FtpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ftp/utils/FtpClient.java" />
     <entry file="file://$PROJECT_DIR$/src/com/ftp/figure/trayIcon.png">
       <provider selected="true" editor-type-id="images" />
@@ -415,13 +375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/java JDK/JDK 8/jre/lib/rt.jar!/sun/net/ftp/impl/FtpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="215" column="39" lean-forward="true" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -480,13 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/utils/ProgressArg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ftp/utils/FtpFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1987">
@@ -540,78 +486,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/UploadPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-412">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/QueueTableCellRanderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/FTPTableCellRanderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpSiteDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3687">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpLinkDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/DownloadPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1306#1307#0" expanded="true" />
-            <element signature="e#1343#1344#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/QueuePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="288" column="9" selection-start-line="288" selection-start-column="9" selection-end-line="288" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8795#8796#0" expanded="true" />
-            <element signature="e#8813#8814#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -630,36 +510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2701">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4001">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/TableConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -688,74 +538,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1251">
-          <caret line="253" column="4" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4499#4675#0" expanded="true" />
-            <element signature="e#4674#4675#0" expanded="true" />
-            <element signature="e#12542#12543#0" expanded="true" />
-            <element signature="e#12570#12571#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/CreateFolderAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/DelFileAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding>
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -792,10 +580,207 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java">
+    <entry file="jar://E:/java JDK/JDK 8/jre/lib/rt.jar!/sun/net/ftp/FtpClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/FtpPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="188" column="53" selection-start-line="188" selection-start-column="53" selection-end-line="188" selection-end-column="53" />
+          <caret line="402" column="5" lean-forward="true" selection-start-line="388" selection-start-column="4" selection-end-line="402" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DownThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="192" column="5" lean-forward="true" selection-start-line="178" selection-start-column="4" selection-end-line="192" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/java JDK/JDK 8/jre/lib/rt.jar!/sun/net/ftp/impl/FtpClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="342" column="13" lean-forward="true" selection-start-line="342" selection-start-column="13" selection-end-line="342" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/DownloadPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-623">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/UploadPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-698">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/QueueTableCellRanderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/queue/QueuePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8795#8796#0" expanded="true" />
+            <element signature="e#8813#8814#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpSiteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3687">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpLinkDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2262">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/utils/ProgressArg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/TableConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/java JDK/JDK 8/src.zip!/javax/swing/DefaultRowSorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="517" selection-start-line="517" selection-end-line="517" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/DelFileAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2575">
+          <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1297">
+          <caret line="195" column="100" selection-start-line="195" selection-start-column="100" selection-end-line="195" selection-end-column="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4475#4651#0" expanded="true" />
+            <element signature="e#4650#4651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding>
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ftp/panel/local/LocalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="50" column="43" lean-forward="true" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -804,14 +789,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ftp/FTPClientFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="138" column="30" lean-forward="true" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
+        <state relative-caret-position="263">
+          <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4571#4755#0" expanded="true" />
-            <element signature="e#4754#4755#0" expanded="true" />
-            <element signature="e#4822#4984#0" expanded="true" />
-            <element signature="e#4983#4984#0" expanded="true" />
+            <element signature="e#4535#4536#0" expanded="true" />
+            <element signature="e#4600#4601#0" expanded="true" />
+            <element signature="e#4608#4792#0" expanded="true" />
+            <element signature="e#4791#4792#0" expanded="true" />
           </folding>
         </state>
       </provider>

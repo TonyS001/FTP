@@ -26,6 +26,7 @@ import com.ftp.FTPClientFrame;
 import com.ftp.panel.FTPTableCellRanderer;
 import com.ftp.panel.mainPanel.TableConverter;
 import com.ftp.utils.DiskFile;
+import sun.net.ftp.FtpClient;
 
 public class LocalPanel extends javax.swing.JPanel {
 	Queue<Object[]> queue = new LinkedList<Object[]>();
@@ -265,7 +266,6 @@ public class LocalPanel extends javax.swing.JPanel {
 		// 获取表格的数据模型
 		DefaultTableModel model = (DefaultTableModel) localDiskTable.getModel();
 		model.setRowCount(0); //  清除模型的内容
-		model.addRow(new Object[] { ".", "<DIR>", "" }); // 创建.选项
 		model.addRow(new Object[] { "..", "<DIR>", "" }); // 创建..选项
 		if (listFiles == null) {
 			JOptionPane.showMessageDialog(this, "该磁盘无法访问");
@@ -275,14 +275,14 @@ public class LocalPanel extends javax.swing.JPanel {
 		for (File file : listFiles) {
 			File diskFile = new DiskFile(file); // 创建文件对象
 			String length = file.length() + "B "; // 获取文件大小
-			if (file.length() > 1000 * 1000 * 1000) { // 计算文件G单位
-				length = file.length() / 1000000000 + "G ";
+			if (file.length() > 1024 * 1024 * 1024) { // 计算文件G单位
+				length = file.length() / 1024/1024/1024 + "G ";
 			}
-			if (file.length() > 1000 * 1000) { // 计算文件M单位
-				length = file.length() / 1000000 + "M ";
+			if (file.length() > 1024 * 1024) { // 计算文件M单位
+				length = file.length() / 1024/1024+ "M ";
 			}
-			if (file.length() > 1000) {
-				length = file.length() / 1000 + "K "; // 计算文件K单位
+			if (file.length() > 1024) {
+				length = file.length() / 1024 + "K "; // 计算文件K单位
 			}
 			if (file.isDirectory()) { // 显示文件夹标志
 				length = "<DIR>";
@@ -314,11 +314,10 @@ public class LocalPanel extends javax.swing.JPanel {
 	/**
 	 * 设置FTP连接，并启动上传队列线程的方法。
 	 */
-	public void setFtpClient(String server, int port, String userStr,
-			String passStr) {
+	public void setFtpClient(FtpClient ftpClient) {
 		if (uploadThread != null)
 			uploadThread.stopThread();
-		uploadThread = new UploadThread(this, server, port, userStr, passStr);
+		uploadThread = new UploadThread(this, ftpClient);
 		uploadThread.start();
 	}
 

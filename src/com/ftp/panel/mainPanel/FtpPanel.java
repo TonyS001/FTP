@@ -1,8 +1,8 @@
 package com.ftp.panel.mainPanel;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -14,7 +14,6 @@ import javax.swing.ActionMap;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -163,13 +162,16 @@ public class FtpPanel extends javax.swing.JPanel{
             FtpFile selFile = (FtpFile) value;
             ftpSelFilePathLabel.setText(selFile.getAbsolutePath());
             if (evt.getClickCount() >= 2) { //双击鼠标
-                if (selFile.isDirectory()) {
-                    try {
-                        ftpClient.changeDirectory(selFile.getAbsolutePath());
-                        listFtpFiles(ftpClient.list(ftpClient.getWorkingDirectory()));
-                    } catch (IOException | FtpProtocolException ex) {
-                        ex.printStackTrace();
-                    }
+                if (selFile.isDirectory()) try {
+                    ftpClient.changeDirectory(selFile.getAbsolutePath());
+                    InputStream list = ftpClient.list(null);
+                    ByteArrayOutputStream temp = clone(list);
+                    list.close();
+                    ftpClient.completePending();
+                    list = new ByteArrayInputStream(temp.toByteArray());
+                    listFtpFiles(list); //调用解析方法
+                } catch (IOException | FtpProtocolException ex) {
+                    ex.printStackTrace();
                 }
             }
         }
@@ -191,9 +193,7 @@ public class FtpPanel extends javax.swing.JPanel{
                 ftpDiskTable.clearSelection();
                 try {
                     String pwd = getPwd(); // 获取FTP服务器的当前文件夹
-                    model.addRow(new Object[] { new FtpFile(".", pwd, true), "", "" }); // 添加“.”符号
                     model.addRow(new Object[] { new FtpFile("..", pwd, true), "", "" }); // 添加“..”符号
-
                     byte[]names=new byte[2048];
                     int bufsize=0;
                     bufsize=list.read(names, 0, names.length);
@@ -257,21 +257,6 @@ public class FtpPanel extends javax.swing.JPanel{
      */
     public void setFtpClient(FtpClient ftpClient) {
         this.ftpClient = ftpClient;
-        // 以30秒为间隔与服务器保持通讯
-        final Timer timer = new Timer(3000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    final FtpClient ftpClient = FtpPanel.this.ftpClient;
-                    if (ftpClient != null && ftpClient.isConnected()) {
-                        ftpClient.noop();
-                    }
-                } catch (IOException | FtpProtocolException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        timer.start();
         startDownThread();
     }
 
@@ -280,9 +265,13 @@ public class FtpPanel extends javax.swing.JPanel{
      */
     public void refreshCurrentFolder() {
         try {
-            // 获取服务器文件列表
-            InputStream list = ftpClient.list(ftpClient.getWorkingDirectory());
-            listFtpFiles(list); // 调用解析方法
+            //获取服务器文件列表
+            InputStream list = ftpClient.list(null);
+            ByteArrayOutputStream temp = clone(list);
+            list.close();
+            ftpClient.completePending();
+            list = new ByteArrayInputStream(temp.toByteArray());
+            listFtpFiles(list);
         } catch (IOException | FtpProtocolException e) {
             e.printStackTrace();
         }
@@ -328,5 +317,21 @@ public class FtpPanel extends javax.swing.JPanel{
     public void clearTable() {
         FtpTableModel model = (FtpTableModel) ftpDiskTable.getModel();
         model.setRowCount(0);
+    }
+
+    private static ByteArrayOutputStream clone(InputStream input){
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = input.read(buffer)) > -1 ) {
+                baos.write(buffer, 0, len);
+            }
+            baos.flush();
+            return baos;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
