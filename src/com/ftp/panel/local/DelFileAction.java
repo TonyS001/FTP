@@ -41,7 +41,7 @@ class DelFileAction extends AbstractAction {
 		if (selRows.length < 1) // 如果没有选择表格内容
 			return; // 结束该方法
 		int confirmDialog = JOptionPane.showConfirmDialog(localPanel,
-				"确定要执行删除吗？"); // 用户确认是否删除
+				"确定要执行删除吗？",null ,JOptionPane.YES_NO_OPTION); // 用户确认是否删除
 		if (confirmDialog == JOptionPane.YES_OPTION) { // 如果用于同意删除
 			Runnable runnable = new Runnable() { // 创建线程
 				/**
@@ -106,7 +106,7 @@ class DelFileAction extends AbstractAction {
 						}
 					}
 					// 调用refreshFolder方法刷新当前文件夹
-					DelFileAction.this.localPanel.refreshFolder(parent);
+					DelFileAction.this.localPanel.refreshCurrentFolder();
 					JOptionPane.showMessageDialog(localPanel, "删除成功。");
 				}
 			};

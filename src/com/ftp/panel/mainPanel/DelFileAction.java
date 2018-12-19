@@ -40,7 +40,7 @@ class DelFileAction extends AbstractAction {
 		final int[] selRows = ftpPanel.ftpDiskTable.getSelectedRows();
 		if (selRows.length < 1)
 			return;
-		int confirmDialog = JOptionPane.showConfirmDialog(ftpPanel, "确定要删除吗？");
+		int confirmDialog = JOptionPane.showConfirmDialog(ftpPanel, "确定要删除吗？",null,JOptionPane.YES_NO_OPTION);
 		if (confirmDialog == JOptionPane.YES_OPTION) {
 			Runnable runnable = new Runnable() {
 

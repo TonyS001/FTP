@@ -68,6 +68,6 @@ class CreateFolderAction extends AbstractAction {
 		else
 			JOptionPane.showMessageDialog(localPanel, folderName + "文件夹无法被创建。",
 					"创建文件夹", JOptionPane.ERROR_MESSAGE);
-		this.localPanel.refreshFolder(curFolder);// 刷新文件夹
+		this.localPanel.refreshCurrentFolder();// 刷新文件夹
 	}
 }

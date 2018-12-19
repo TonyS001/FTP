@@ -186,13 +186,6 @@ public class LocalPanel extends javax.swing.JPanel {
 	}
 
 	/**
-	 * 刷新指定文件夹的方法
-	 */
-	void refreshFolder(File file) {
-		listLocalFiles(file);
-	}
-
-	/**
 	 * 刷新本地当前文件夹的方法
 	 */
 	public void refreshCurrentFolder() {

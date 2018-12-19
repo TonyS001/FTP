@@ -52,7 +52,7 @@ class RenameAction extends AbstractAction {
 		File renFile = new File(file.getParentFile(), fileName);
 		boolean isRename = file.renameTo(renFile); // 将原文件重命名
 		// 刷新文件夹
-		this.localPanel.refreshFolder(file.getParentFile());
+		this.localPanel.refreshCurrentFolder();
 		if (isRename) {
 			JOptionPane.showMessageDialog(this.localPanel, "重命名为" + fileName
 					+ "成功。");
