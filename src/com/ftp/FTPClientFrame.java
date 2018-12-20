@@ -8,19 +8,7 @@ import java.awt.event.WindowEvent;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JSeparator;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
+import javax.swing.*;
 
 import com.ftp.panel.mainPanel.FtpPanel;
 import com.ftp.panel.local.LocalPanel;
@@ -410,7 +398,12 @@ public class FTPClientFrame extends javax.swing.JFrame{
             cutLinkButton.doClick();
             SocketAddress addr = new InetSocketAddress(server,port);
             ftpClient.connect(addr); // 连接服务器
-            ftpClient.login(userStr, passStr.toCharArray()); // 登录服务器
+            try{
+                ftpClient.login(userStr, passStr.toCharArray()); // 登录服务器
+            } catch (sun.net.ftp.FtpProtocolException e1){ //如果密码输入错误
+                JOptionPane.showMessageDialog(null,
+                        "密码错误！请重试！","Warning",JOptionPane.ERROR_MESSAGE);
+            }
             ftpClient.setBinaryType(); // 使用二进制传输模式
             if (ftpClient.isLoggedIn()) { // 如果连接成功
                 CUT_LINK_ACTION.setEnabled(true); // 设置断开按钮可用
