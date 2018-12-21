@@ -45,6 +45,7 @@ public class FTPClientFrame extends javax.swing.JFrame{
 
     //初始化程序界面的方法
     private void initComponents() {
+        setDefaultCloseOperation(0); //默认关闭窗口模式
         setIconImage(icon.getImage());
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -111,7 +112,11 @@ public class FTPClientFrame extends javax.swing.JFrame{
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                int confirmDialog = JOptionPane.showConfirmDialog(null,
+                        "老师确定给满分吗？",null ,JOptionPane.YES_NO_OPTION); // 用户确认是否退出
+                if (confirmDialog == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
             }
         });
 
