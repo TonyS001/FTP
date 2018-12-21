@@ -1,4 +1,4 @@
-package com.ftp.panel.mainPanel;
+package com.ftp.panel.remote;
 
 import javax.swing.table.TableModel;
 import javax.swing.table.TableStringConverter;

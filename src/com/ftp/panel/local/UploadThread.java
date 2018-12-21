@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.util.Queue;
 
-import com.ftp.panel.mainPanel.FtpPanel;
+import com.ftp.panel.remote.FtpPanel;
 import com.ftp.panel.queue.UploadPanel;
 import com.ftp.utils.FtpFile;
 import com.ftp.utils.ProgressArg;

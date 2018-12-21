@@ -16,21 +16,21 @@
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/RenameAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/local/UploadThread.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/CreateFolderAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DelFileAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/DownThread.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpPanel.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/FtpTableModel.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/RefreshAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/RenameAction.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/mainPanel/TableConverter.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpLinkDialog.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/manager/FtpSiteDialog.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/manager/SiteDialog.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/DownloadPanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/QueuePanel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/panel/queue/UploadPanel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/CreateFolderAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/DelFileAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/DownAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/DownThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/FtpPanel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/FtpTableModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/RefreshAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/RenameAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/ftp/panel/remote/TableConverter.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/utils/DiskFile.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/utils/FileInterface.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/ftp/utils/FtpFile.java" charset="GBK" />

@@ -1,4 +1,4 @@
-package com.ftp.panel.mainPanel;
+package com.ftp.panel.remote;
 
 import sun.net.ftp.FtpProtocolException;
 import java.awt.event.ActionEvent;

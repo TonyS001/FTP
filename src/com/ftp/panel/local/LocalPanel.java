@@ -24,7 +24,7 @@ import javax.swing.table.TableStringConverter;
 
 import com.ftp.FTPClientFrame;
 import com.ftp.panel.FTPTableCellRanderer;
-import com.ftp.panel.mainPanel.TableConverter;
+import com.ftp.panel.remote.TableConverter;
 import com.ftp.utils.DiskFile;
 import sun.net.ftp.FtpClient;
 

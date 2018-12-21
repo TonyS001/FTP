@@ -10,7 +10,7 @@ import java.net.SocketAddress;
 
 import javax.swing.*;
 
-import com.ftp.panel.mainPanel.FtpPanel;
+import com.ftp.panel.remote.FtpPanel;
 import com.ftp.panel.local.LocalPanel;
 import com.ftp.panel.manager.FtpSiteDialog;
 import com.ftp.panel.queue.DownloadPanel;

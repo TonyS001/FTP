@@ -1,4 +1,4 @@
-package com.ftp.panel.mainPanel;
+package com.ftp.panel.remote;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
