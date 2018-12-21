@@ -91,7 +91,7 @@ public class FTPClientFrame extends javax.swing.JFrame{
         JMenuItem ftpRenameMenuItem = new javax.swing.JMenuItem();
         JMenuItem newFolderMenuItem = new javax.swing.JMenuItem();
         JMenu helpMenu = new javax.swing.JMenu();
-        JMenuItem bugMenuItem = new javax.swing.JMenuItem();
+        JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
 
         setTitle("基于Socket的FTP软件");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -349,10 +349,10 @@ public class FTPClientFrame extends javax.swing.JFrame{
 
         helpMenu.setText("帮助(H)");
 
-        bugMenuItem.setMnemonic('u');
-        bugMenuItem.setText("错误报告(U)");
-        bugMenuItem.addActionListener(new BugItemAction());
-        helpMenu.add(bugMenuItem);
+        aboutMenuItem.setMnemonic('a');
+        aboutMenuItem.setText("关于(A)");
+        aboutMenuItem.addActionListener(new AboutItemAction());
+        helpMenu.add(aboutMenuItem);
 
         MenuBar.add(helpMenu);
 
