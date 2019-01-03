@@ -82,7 +82,7 @@ public class FtpLinkDialog extends JDialog implements ActionListener {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width - 200) / 2, (screenSize.height - 400) / 2,
-				200, 400);
+				310, 400);
 		setVisible(true);
 	}
 

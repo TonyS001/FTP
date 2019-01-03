@@ -88,7 +88,7 @@ public class FtpSiteDialog extends JDialog implements ActionListener {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width - 200) / 2, (screenSize.height - 430) / 2,
-				200, 430);
+				220, 430);
 		setVisible(true);
 	}
 
